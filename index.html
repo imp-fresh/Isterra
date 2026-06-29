@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isterra Textil — Tejido hecho a mano</title>
+  <meta name="description" content="ISTERRA | Tejido hecho a mano | Moda sostenible. Vestidos, tops, conjuntos artesanales. Confección 10-12 días. Envíos a todo Chile.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --rose: #C8798A;
+      --rose-light: #F5E6E9;
+      --rose-dark: #8B3A4A;
+      --gold: #C9A84C;
+      --gold-light: #F7F0DC;
+      --gold-dark: #8B6914;
+      --cream: #FAF6F1;
+      --text-main: #2C1A1E;
+      --text-soft: #7A5A60;
+      --white: #FFFFFF;
+      --border: #E8D5D9;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .shop {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--cream);
+    }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 8px rgba(44,26,30,0.05);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: var(--rose-dark);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .nav-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-soft);
+      font-size: 13px;
+      font-family: 'Jost', sans-serif;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-btn:hover { color: var(--rose); background: var(--rose-light); }
+    .nav-btn i { font-size: 20px; }
+    .cart-badge {
+      background: var(--rose);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #2C1A1E 0%, #5C2D3A 50%, #8B3A4A 100%);
+      padding: 72px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 14px;
+      color: #C8B0B4;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .hero-location {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+    .hero-cta {
+      background: var(--gold);
+      color: var(--text-main);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 14px 36px;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .hero-cta:hover { background: #D4B55E; transform: translateY(-1px); }
+
+    /* ── SECTIONS ── */
+    .section { padding: 52px 28px; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--rose-dark);
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .divider-line { width: 48px; height: 1px; background: var(--gold); opacity: 0.5; }
+    .divider-diamond { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+
+    /* ── TABS ── */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+    .tab {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      padding: 12px 20px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab.active { color: var(--rose-dark); border-bottom-color: var(--rose); }
+    .tab:hover { color: var(--rose); }
+
+    /* ── PRODUCTS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 680px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media (max-width: 420px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      border-color: var(--rose);
+      box-shadow: 0 4px 20px rgba(139,58,74,0.08);
+    }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--rose-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-emoji { font-size: 56px; }
+    .product-img-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      color: var(--text-soft);
+      font-style: italic;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+    .product-ig-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      border-radius: 3px;
+      padding: 5px 9px;
+      font-size: 11px;
+      color: var(--rose-dark);
+      letter-spacing: 0.5px;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.2s;
+    }
+    .product-ig-btn:hover { background: white; }
+    .badge-new, .badge-handmade {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+    .badge-new { background: var(--gold); color: var(--text-main); }
+    .badge-handmade { background: var(--rose-dark); color: white; }
+    .product-info { padding: 14px; }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+    .product-variant { font-size: 12px; color: var(--text-soft); margin-bottom: 12px; letter-spacing: 0.5px; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .product-price {
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--rose-dark);
+    }
+    .add-btn {
+      background: var(--rose-dark);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      padding: 8px 14px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .add-btn:hover { background: var(--rose); }
+
+    /* ── INSTAGRAM ── */
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .ig-cell {
+      aspect-ratio: 1;
+      background: var(--rose-light);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .ig-cell:hover { border-color: var(--rose); }
+    .ig-cell-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .ig-cell-emoji { font-size: 36px; }
+    .ig-cell-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      color: var(--text-soft);
+      font-style: italic;
+      text-align: center;
+      padding: 0 6px;
+    }
+    .ig-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44,26,30,0.6);
+      opacity: 0;
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+    .ig-cell:hover .ig-overlay { opacity: 1; }
+    .ig-overlay-icon { color: white; font-size: 13px; font-family: 'Jost', sans-serif; }
+    .ig-follow-btn {
+      display: block;
+      width: fit-content;
+      margin: 20px auto 0;
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold-dark);
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .ig-follow-btn:hover { background: var(--gold-light); }
+
+    /* ── CUPONES ── */
+    .coupon-box {
+      background: var(--white);
+      border: 1px dashed var(--gold);
+      border-radius: 4px;
+      padding: 22px;
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .coupon-input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 11px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      color: var(--text-main);
+      background: var(--cream);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .coupon-input:focus { outline: none; border-color: var(--gold); }
+    .coupon-btn {
+      background: var(--gold-dark);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 11px 22px;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .coupon-btn:hover { background: var(--gold); color: var(--text-main); }
+    .coupon-msg { margin-top: 12px; font-size: 13px; min-height: 20px; }
+    .coupon-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .coupon-card {
+      border-radius: 4px;
+      padding: 14px 18px;
+      text-align: center;
+    }
+    .coupon-card.gold {
+      background: var(--gold-light);
+      border: 1px dashed var(--gold);
+    }
+    .coupon-card.rose {
+      background: var(--rose-light);
+      border: 1px dashed var(--rose);
+    }
+    .coupon-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      font-weight: 500;
+    }
+    .coupon-card.gold .coupon-code { color: var(--gold-dark); }
+    .coupon-card.rose .coupon-code { color: var(--rose-dark); }
+    .coupon-desc { font-size: 12px; color: var(--text-soft); margin-top: 3px; }
+
+    /* ── RESEÑAS ── */
+    .reviews-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 18px;
+    }
+    .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--rose-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--rose-dark);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 500; color: var(--text-main); }
+    .review-date { font-size: 12px; color: var(--text-soft); }
+    .review-stars { color: var(--gold); font-size: 15px; margin-bottom: 8px; }
+    .review-text { font-size: 14px; color: var(--text-soft); line-height: 1.65; font-style: italic; }
+    .review-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 22px;
+    }
+    .review-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--rose-dark);
+      margin-bottom: 16px;
+    }
+    .form-row { margin-bottom: 14px; }
+    .form-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 10px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      color: var(--text-main);
+      background: var(--cream);
+      transition: border-color 0.2s;
+    }
+    .form-textarea { height: 90px; resize: vertical; }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--rose); }
+    .star-select { display: flex; gap: 6px; margin: 8px 0; }
+    .star-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 26px;
+      color: #DDD;
+      transition: color 0.15s, transform 0.1s;
+      line-height: 1;
+    }
+    .star-btn:hover { transform: scale(1.15); }
+    .star-btn.lit { color: var(--gold); }
+    .submit-btn {
+      background: var(--rose-dark);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 11px 28px;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .submit-btn:hover { background: var(--rose); }
+
+    /* ── CONTACTO ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 600px) {
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 14px;
+      text-align: center;
+    }
+    .contact-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+    .contact-val { font-size: 13px; color: var(--rose-dark); font-weight: 500; line-height: 1.4; }
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px;
+    }
+    .contact-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--rose-dark);
+      margin-bottom: 18px;
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 500px) { .form-row-2 { grid-template-columns: 1fr; } }
+
+    /* ── CART DRAWER ── */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(44,26,30,0.5);
+      z-index: 300;
+      display: none;
+      justify-content: flex-end;
+    }
+    .cart-overlay.open { display: flex; }
+    .cart-drawer {
+      background: var(--white);
+      width: 360px;
+      max-width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: slideIn 0.25s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    .cart-header {
+      background: var(--rose-dark);
+      color: white;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .cart-header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .cart-close {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      padding: 4px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .cart-close:hover { opacity: 1; }
+    .cart-items {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+    }
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cart-item-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 3px;
+      background: var(--rose-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-name { font-size: 14px; font-weight: 500; color: var(--text-main); margin-bottom: 3px; }
+    .cart-item-price { font-size: 13px; color: var(--rose); }
+    .cart-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .qty-btn {
+      background: var(--rose-light);
+      border: 1px solid var(--border);
+      color: var(--rose-dark);
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .qty-btn:hover { background: var(--rose); color: white; }
+    .qty-val { font-size: 13px; font-weight: 500; min-width: 16px; text-align: center; }
+    .cart-item-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #CCC;
+      font-size: 16px;
+      transition: color 0.2s;
+      padding: 4px;
+    }
+    .cart-item-remove:hover { color: var(--rose); }
+    .empty-cart {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--text-soft);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .cart-footer {
+      padding: 18px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .cart-coupon-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .cart-coupon-input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 9px 12px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: var(--cream);
+      color: var(--text-main);
+    }
+    .cart-coupon-input:focus { outline: none; border-color: var(--gold); }
+    .cart-coupon-btn {
+      background: none;
+      border: 1px solid var(--gold-dark);
+      color: var(--gold-dark);
+      cursor: pointer;
+      padding: 9px 14px;
+      font-size: 11px;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      letter-spacing: 1px;
+      transition: background 0.15s;
+    }
+    .cart-coupon-btn:hover { background: var(--gold-light); }
+    .discount-msg { font-size: 12px; color: #2E7D32; margin-bottom: 10px; }
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .cart-subtotal-label {
+      font-size: 13px;
+      color: var(--text-soft);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .cart-subtotal-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--rose-dark);
+    }
+    .checkout-btn {
+      width: 100%;
+      background: #25D366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 14px;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .checkout-btn:hover { background: #1EBE59; }
+    .checkout-btn i { font-size: 18px; }
+    .note-encargo {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--text-main);
+      color: #C8B0B4;
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      opacity: 0.6;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-link {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #C8B0B4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--gold); }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .footer-social a {
+      color: #C8B0B4;
+      font-size: 20px;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-copy { font-size: 11px; opacity: 0.4; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(60px);
+      background: var(--rose-dark);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 3px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      z-index: 400;
+      transition: transform 0.3s;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── UTILS ── */
+    .section-alt { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+<div class="shop">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">Iste<span>rra</span></a>
+    <div class="nav-actions">
+      <button class="nav-btn" onclick="scrollTo('ig-section')" title="Instagram">
+        <i class="ti ti-brand-instagram"></i>
+      </button>
+      <button class="nav-btn" onclick="scrollTo('contact-section')" title="Contacto">
+        <i class="ti ti-mail"></i>
+      </button>
+      <button class="nav-btn" id="cart-toggle-btn" onclick="openCart()">
+        <i class="ti ti-shopping-bag"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Moda sostenible · Coñaripe, Los Ríos</div>
+      <h1 class="hero-title">Tejido con<br><em>amor artesanal</em></h1>
+      <div class="hero-sub">Vestidos &nbsp;·&nbsp; Tops &nbsp;·&nbsp; Conjuntos &nbsp;·&nbsp; Diseños únicos</div>
+      <div class="hero-location">✦ &nbsp; Confección 10–12 días &nbsp;·&nbsp; Envíos a todo Chile 🇨🇱 &nbsp; ✦</div>
+      <button class="hero-cta" onclick="scrollTo('products-section')">Ver colección</button>
+    </div>
+  </div>
+
+  <!-- PRODUCTOS -->
+  <div class="section" id="products-section">
+    <h2 class="section-title">Nuestra colección</h2>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="filterCat('todos',this)">Todos</button>
+      <button class="tab" onclick="filterCat('vestidos',this)">Vestidos</button>
+      <button class="tab" onclick="filterCat('tops',this)">Tops</button>
+      <button class="tab" onclick="filterCat('conjuntos',this)">Conjuntos</button>
+    </div>
+    <div class="products-grid" id="products-grid"></div>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="section section-alt" id="ig-section">
+    <h2 class="section-title">En Instagram</h2>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="ig-grid" id="ig-grid"></div>
+    <a class="ig-follow-btn" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">
+      <i class="ti ti-brand-instagram" style="vertical-align:-2px; margin-right:6px;"></i>
+      Seguir @isterra_textil
+    </a>
+  </div>
+
+  <!-- CUPONES -->
+  <div class="section">
+    <h2 class="section-title">Cupones de descuento</h2>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="coupon-box">
+      <input class="coupon-input" id="coupon-input-main" type="text" placeholder="Ingresa tu código aquí">
+      <button class="coupon-btn" onclick="applyCouponMain()">Aplicar</button>
+    </div>
+    <div class="coupon-msg" id="coupon-msg-main"></div>
+    <div class="coupon-cards">
+      <div class="coupon-card gold">
+        <div class="coupon-code">ISTERRA10</div>
+        <div class="coupon-desc">10% en tu primera compra</div>
+      </div>
+      <div class="coupon-card rose">
+        <div class="coupon-code">AMOR15</div>
+        <div class="coupon-desc">15% en conjuntos completos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEÑAS -->
+  <div class="section section-alt">
+    <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="reviews-list" id="reviews-list"></div>
+    <div class="review-form">
+      <div class="review-form-title">Comparte tu experiencia</div>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label class="form-label">Tu nombre</label>
+          <input class="form-input" id="rev-name" type="text" placeholder="María F.">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Producto comprado</label>
+          <input class="form-input" id="rev-product" type="text" placeholder="Vestido Lino Tejido">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Puntuación</label>
+        <div class="star-select" id="star-select">
+          <button class="star-btn" onclick="setStars(1)">★</button>
+          <button class="star-btn" onclick="setStars(2)">★</button>
+          <button class="star-btn" onclick="setStars(3)">★</button>
+          <button class="star-btn" onclick="setStars(4)">★</button>
+          <button class="star-btn" onclick="setStars(5)">★</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Tu reseña</label>
+        <textarea class="form-textarea" id="rev-text" placeholder="¿Cómo fue tu experiencia con Isterra? Cuéntanos sobre calidad, tiempo de entrega, atención..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitReview()">Publicar reseña</button>
+      <div id="rev-msg" style="margin-top:10px; font-size:13px;"></div>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <div class="section" id="contact-section">
+    <h2 class="section-title">Contacto y pedidos</h2>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <i class="ti ti-brand-instagram contact-icon" style="color:var(--rose);"></i>
+        <div class="contact-label">Instagram</div>
+        <div class="contact-val">@isterra_textil</div>
+      </div>
+      <div class="contact-card">
+        <i class="ti ti-map-pin contact-icon" style="color:var(--rose);"></i>
+        <div class="contact-label">Ubicación</div>
+        <div class="contact-val">Coñaripe, Los Ríos</div>
+      </div>
+      <div class="contact-card">
+        <i class="ti ti-clock contact-icon" style="color:var(--gold);"></i>
+        <div class="contact-label">Confección</div>
+        <div class="contact-val">10–12 días hábiles</div>
+      </div>
+      <div class="contact-card">
+        <i class="ti ti-truck contact-icon" style="color:var(--gold);"></i>
+        <div class="contact-label">Envíos</div>
+        <div class="contact-val">Todo Chile 🇨🇱</div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="contact-form-title">Escríbenos</div>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label class="form-label">Nombre</label>
+          <input class="form-input" id="c-name" type="text" placeholder="Tu nombre">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Correo electrónico</label>
+          <input class="form-input" id="c-email" type="email" placeholder="tuemail@correo.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Mensaje</label>
+        <textarea class="form-textarea" id="c-msg" placeholder="Consultas sobre tallas, colores disponibles, pedidos personalizados, tiempos de entrega..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitContact()">
+        <i class="ti ti-send" style="vertical-align:-2px; margin-right:4px;"></i>
+        Enviar mensaje
+      </button>
+      <div id="contact-msg" style="margin-top:10px; font-size:13px;"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">ISTERRA</div>
+    <div class="footer-tagline">Tejido hecho a mano · Moda sostenible</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener" title="Instagram">
+        <i class="ti ti-brand-instagram"></i>
+      </a>
+      <a href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp">
+        <i class="ti ti-brand-whatsapp"></i>
+      </a>
+    </div>
+    <div class="footer-links">
+      <a class="footer-link" onclick="scrollTo('products-section')">Colección</a>
+      <a class="footer-link" onclick="scrollTo('ig-section')">Instagram</a>
+      <a class="footer-link" onclick="scrollTo('contact-section')">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2024 Isterra Textil · Coñaripe, Los Ríos · Diseños únicos hechos a mano</div>
+  </footer>
+
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCartOutside(event)">
+  <div class="cart-drawer" onclick="event.stopPropagation()">
+    <div class="cart-header">
+      <div class="cart-header-title">Mi carrito</div>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-coupon-row">
+        <input class="cart-coupon-input" id="cart-coupon" type="text" placeholder="CÓDIGO DESCUENTO">
+        <button class="cart-coupon-btn" onclick="applyCartCoupon()">Aplicar</button>
+      </div>
+      <div id="cart-discount-msg"></div>
+      <div class="cart-subtotal">
+        <span class="cart-subtotal-label">Total estimado</span>
+        <span class="cart-subtotal-val" id="cart-total">$0</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">
+        <i class="ti ti-brand-whatsapp"></i>
+        Confirmar por WhatsApp
+      </button>
+      <div class="note-encargo">Los pedidos se confirman vía WhatsApp o Instagram · Confección 10–12 días</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── DATOS ──
+  const PRODUCTS = [
+    { id:1, name:'Vestido Lino Tejido', cat:'vestidos', price:42000, variant:'Varios colores disponibles', badge:'new', emoji:'🧶' },
+    { id:2, name:'Top Cropped Artesanal', cat:'tops', price:26000, variant:'Beige / Terracota / Natural', badge:'', emoji:'🪡' },
+    { id:3, name:'Conjunto Primavera', cat:'conjuntos', price:58000, variant:'Tejido artesanal a mano', badge:'handmade', emoji:'✨' },
+    { id:4, name:'Vestido Boho Rústico', cat:'vestidos', price:48000, variant:'Marfil / Verde / Camel', badge:'', emoji:'🌿' },
+    { id:5, name:'Top Macramé Verano', cat:'tops', price:22000, variant:'Natural / Hueso / Crudo', badge:'new', emoji:'🧵' },
+    { id:6, name:'Conjunto Telar Sur', cat:'conjuntos', price:64000, variant:'Edición limitada', badge:'handmade', emoji:'🪢' },
+  ];
+
+  const IG_ITEMS = [
+    { emoji:'🧶', label:'Vestido lino tejido' },
+    { emoji:'🪡', label:'Top cropped natural' },
+    { emoji:'✨', label:'Conjunto artesanal' },
+    { emoji:'🌿', label:'Tejido boho' },
+    { emoji:'🧵', label:'Detalle de hilo' },
+    { emoji:'🪢', label:'Colección verano' },
+    { emoji:'🌸', label:'Nuevo top' },
+    { emoji:'🎀', label:'Telar artesanal' },
+    { emoji:'💛', label:'Blusa tejida' },
+  ];
+
+  const REVIEWS_BASE = [
+    { name:'Valentina M.', product:'Vestido Lino Tejido', stars:5, text:'Compré un vestido tejido y es HERMOSO. La calidad es increíble, cada detalle se nota hecho con amor. ¡Lo pedí en 10 días y llegó perfecto!', date:'Diciembre 2024' },
+    { name:'Sofía R.', product:'Conjunto Primavera', stars:5, text:'Mi conjunto de Isterra me lo han preguntado en todas partes. Moda sostenible y única, no hay otra igual. 100% recomendada.', date:'Noviembre 2024' },
+    { name:'Camila A.', product:'Top Cropped Artesanal', stars:4, text:'El top que pedí quedó hermoso y el color exacto al de la foto. Solo demora un poco más en temporada alta pero vale cada día la espera.', date:'Octubre 2024' },
+  ];
+
+  const COUPONS = { 'ISTERRA10': 10, 'AMOR15': 15, 'ISTERRA20': 20 };
+
+  // ── ESTADO ──
+  let cart = [];
+  let currentDiscount = 0;
+  let reviewStars = 0;
+  let reviews = [...REVIEWS_BASE];
+
+  // ── PRODUCTS ──
+  function renderProducts(cat) {
+    const grid = document.getElementById('products-grid');
+    const filtered = cat === 'todos' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card">
+        <div class="product-img">
+          ${p.badge === 'new' ? '<span class="badge-new">Nuevo</span>' : ''}
+          ${p.badge === 'handmade' ? '<span class="badge-handmade">Hecho a mano</span>' : ''}
+          <span class="product-emoji">${p.emoji}</span>
+          <span class="product-img-label">Tejido artesanal</span>
+          <button class="product-ig-btn" onclick="window.open('https://www.instagram.com/isterra_textil/','_blank')">Ver en IG →</button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">${p.name}</div>
+          <div class="product-variant">${p.variant}</div>
+          <div class="product-bottom">
+            <div class="product-price">$${p.price.toLocaleString('es-CL')} CLP</div>
+            <button class="add-btn" onclick="addToCart(${p.id})">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterCat(cat, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  }
+
+  // ── INSTAGRAM ──
+  function renderIG() {
+    document.getElementById('ig-grid').innerHTML = IG_ITEMS.map(item => `
+      <div class="ig-cell" onclick="window.open('https://www.instagram.com/isterra_textil/','_blank')">
+        <div class="ig-cell-inner">
+          <span class="ig-cell-emoji">${item.emoji}</span>
+          <span class="ig-cell-label">${item.label}</span>
+        </div>
+        <div class="ig-overlay">
+          <span class="ig-overlay-icon">♥ Ver en Instagram</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── RESEÑAS ──
+  function renderReviews() {
+    document.getElementById('reviews-list').innerHTML = reviews.map(r => `
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">${r.name.charAt(0)}</div>
+          <div>
+            <div class="review-name">${r.name}</div>
+            <div class="review-date">${r.product ? r.product + ' · ' : ''}${r.date}</div>
+          </div>
+        </div>
+        <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+        <div class="review-text">"${r.text}"</div>
+      </div>
+    `).join('');
+  }
+
+  function setStars(n) {
+    reviewStars = n;
+    document.querySelectorAll('.star-btn').forEach((btn, i) => {
+      btn.classList.toggle('lit', i < n);
+    });
+  }
+
+  function submitReview() {
+    const name = document.getElementById('rev-name').value.trim();
+    const text = document.getElementById('rev-text').value.trim();
+    const product = document.getElementById('rev-product').value.trim();
+    const msg = document.getElementById('rev-msg');
+    if (!name || !text || !reviewStars) {
+      msg.innerHTML = '<span style="color:#C62828">Por favor completa tu nombre, selecciona estrellas y escribe tu reseña.</span>';
+      return;
+    }
+    reviews.unshift({ name, product, stars: reviewStars, text, date: 'Hoy' });
+    renderReviews();
+    document.getElementById('rev-name').value = '';
+    document.getElementById('rev-text').value = '';
+    document.getElementById('rev-product').value = '';
+    setStars(0);
+    msg.innerHTML = '<span style="color:#2E7D32">✓ ¡Gracias por tu reseña! Ya aparece publicada.</span>';
+    setTimeout(() => msg.innerHTML = '', 4000);
+    showToast('¡Reseña publicada! Gracias ✨');
+  }
+
+  // ── CARRITO ──
+  function addToCart(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    const existing = cart.find(x => x.id === id);
+    if (existing) existing.qty += 1;
+    else cart.push({ ...p, qty: 1 });
+    updateCartUI();
+    openCart();
+    showToast(`${p.name} agregado al carrito`);
+  }
+
+  function changeQty(id, delta) {
+    const item = cart.find(x => x.id === id);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+    updateCartUI();
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(x => x.id !== id);
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const count = cart.reduce((a,b) => a + b.qty, 0);
+    document.getElementById('cart-count').textContent = count;
+    const list = document.getElementById('cart-items-list');
+    if (!cart.length) {
+      list.innerHTML = '<div class="empty-cart">Tu carrito está vacío.<br><br>Elige algo que te encante ✨</div>';
+      document.getElementById('cart-total').textContent = '$0';
+      return;
+    }
+    list.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <div class="cart-item-img">${item.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">$${item.price.toLocaleString('es-CL')} c/u</div>
+          <div class="cart-qty">
+            <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+          </div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${item.id})" aria-label="Eliminar">✕</button>
+      </div>
+    `).join('');
+    const subtotal = cart.reduce((a,b) => a + b.price * b.qty, 0);
+    const total = subtotal * (1 - currentDiscount/100);
+    document.getElementById('cart-total').textContent = '$' + Math.round(total).toLocaleString('es-CL') + ' CLP';
+  }
+
+  function openCart() { document.getElementById('cart-overlay').classList.add('open'); updateCartUI(); }
+  function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); }
+  function closeCartOutside(e) { if (e.target.id === 'cart-overlay') closeCart(); }
+
+  // ── CUPONES ──
+  function applyCartCoupon() {
+    const code = document.getElementById('cart-coupon').value.trim().toUpperCase();
+    const msg = document.getElementById('cart-discount-msg');
+    if (COUPONS[code]) {
+      currentDiscount = COUPONS[code];
+      msg.innerHTML = `<div class="discount-msg">✓ Descuento ${currentDiscount}% aplicado</div>`;
+      updateCartUI();
+    } else {
+      msg.innerHTML = `<div style="color:#C62828; font-size:12px; margin-bottom:8px;">Código no válido. Prueba ISTERRA10 o AMOR15</div>`;
+    }
+  }
+
+  function applyCouponMain() {
+    const code = document.getElementById('coupon-input-main').value.trim().toUpperCase();
+    const msg = document.getElementById('coupon-msg-main');
+    if (COUPONS[code]) {
+      currentDiscount = COUPONS[code];
+      msg.innerHTML = `<span style="color:#2E7D32;">✓ Código <strong>${code}</strong> activado — ${COUPONS[code]}% de descuento se aplicará en tu carrito</span>`;
+      showToast(`Cupón ${code} activado: ${COUPONS[code]}% OFF`);
+    } else {
+      msg.innerHTML = `<span style="color:#C62828;">Código no válido. Prueba con ISTERRA10 o AMOR15</span>`;
+    }
+  }
+
+  // ── CHECKOUT ──
+  function checkout() {
+    if (!cart.length) { showToast('Tu carrito está vacío'); return; }
+    const subtotal = cart.reduce((a,b) => a + b.price * b.qty, 0);
+    const total = Math.round(subtotal * (1 - currentDiscount/100));
+    const items = cart.map(i => `• ${i.name} x${i.qty} — $${(i.price*i.qty).toLocaleString('es-CL')} CLP`).join('\n');
+    const disc = currentDiscount ? `\n🏷️ Descuento aplicado: ${currentDiscount}%` : '';
+    const msg = `¡Hola Isterra! Quiero hacer un encargo:\n\n${items}${disc}\n\n💰 *Total estimado: $${total.toLocaleString('es-CL')} CLP*\n\n¿Me puedes confirmar disponibilidad y tallas? ¡Gracias! 🪡`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  // ── CONTACTO ──
+  function submitContact() {
+    const name = document.getElementById('c-name').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    const txt = document.getElementById('c-msg').value.trim();
+    const msg = document.getElementById('contact-msg');
+    if (!name || !email || !txt) {
+      msg.innerHTML = '<span style="color:#C62828">Por favor completa todos los campos.</span>';
+      return;
+    }
+    msg.innerHTML = '<span style="color:#2E7D32">✓ Mensaje recibido. Te responderemos pronto vía Instagram o correo electrónico.</span>';
+    document.getElementById('c-name').value = '';
+    document.getElementById('c-email').value = '';
+    document.getElementById('c-msg').value = '';
+    showToast('Mensaje enviado ✓');
+  }
+
+  // ── UTILS ──
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // ── INIT ──
+  renderProducts('todos');
+  renderIG();
+  renderReviews();
+</script>
+</body>
+</html>
