@@ -1,296 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Isterra · Moda Tejida</title>
-  <meta name="description" content="ISTERRA | Tejido hecho a mano | Moda sostenible. Crochet · Palillos · Fibras vegetales. Confección 10-12 días. Envíos a todo Chile.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    :root{
-      --rose:#C8798A;--rose-light:#F5E6E9;--rose-dark:#8B3A4A;
-      --gold:#C9A84C;--gold-light:#F7F0DC;--gold-dark:#8B6914;
-      --cream:#FAF6F1;--text-main:#2C1A1E;--text-soft:#7A5A60;
-      --white:#FFFFFF;--border:#E8D5D9;
-    }
-    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-main);min-height:100vh}
-    .shop{max-width:960px;margin:0 auto;background:var(--cream)}
-
-    /* NAV */
-    .nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(44,26,30,.05)}
-    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .nav-logo img{height:40px;width:40px;border-radius:50%;object-fit:cover}
-    .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:3px;color:var(--rose-dark);text-transform:uppercase}
-    .nav-logo-text span{color:var(--gold)}
-    .nav-actions{display:flex;gap:6px;align-items:center}
-    .nav-btn{background:none;border:none;cursor:pointer;color:var(--text-soft);font-size:13px;font-family:'Jost',sans-serif;letter-spacing:1px;display:flex;align-items:center;gap:5px;padding:8px 10px;border-radius:4px;transition:color .2s,background .2s}
-    .nav-btn:hover{color:var(--rose);background:var(--rose-light)}
-    .nav-btn i{font-size:20px}
-    .cart-badge{background:var(--rose);color:white;border-radius:50%;width:20px;height:20px;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:500}
-
-    /* HERO */
-    .hero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#2C1A1E 0%,#5C2D3A 50%,#8B3A4A 100%)}
-    .hero-logo-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.08}
-    .hero-logo-bg img{width:420px;height:420px;object-fit:contain;filter:brightness(10)}
-    .hero-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-    .hero-content{position:relative;z-index:2;text-align:center;padding:60px 32px}
-    .hero-logo-circle{width:90px;height:90px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:2px solid rgba(201,168,76,.4);box-shadow:0 0 24px rgba(201,168,76,.2)}
-    .hero-logo-circle img{width:100%;height:100%;object-fit:cover}
-    .hero-eyebrow{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
-    .hero-title{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:var(--white);line-height:1.1;margin-bottom:14px}
-    .hero-title em{font-style:italic;color:var(--gold)}
-    .hero-sub{font-size:13px;color:#C8B0B4;letter-spacing:2px;margin-bottom:8px}
-    .hero-loc{font-size:12px;color:var(--gold);letter-spacing:3px;margin-bottom:28px;opacity:.9}
-    .hero-cta{background:var(--gold);color:var(--text-main);border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:500;padding:13px 34px;border-radius:2px;transition:background .2s,transform .1s}
-    .hero-cta:hover{background:#D4B55E;transform:translateY(-1px)}
-
-    /* SECTION */
-    .section{padding:48px 24px}
-    .section-alt{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .section-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--rose-dark);text-align:center;margin-bottom:8px;letter-spacing:1px}
-    .section-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:28px}
-    .divider-line{width:48px;height:1px;background:var(--gold);opacity:.5}
-    .divider-diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-
-    /* TABS */
-    .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto;gap:0}
-    .tab{background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);padding:11px 18px;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
-    .tab.active{color:var(--rose-dark);border-bottom-color:var(--rose)}
-    .tab:hover{color:var(--rose)}
-
-    /* PRODUCTS */
-    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media(max-width:680px){.products-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
-    @media(max-width:400px){.products-grid{grid-template-columns:1fr}}
-    .product-card{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color .2s,box-shadow .2s;cursor:default}
-    .product-card:hover{border-color:var(--rose);box-shadow:0 4px 20px rgba(139,58,74,.08)}
-    .product-img-wrap{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--rose-light)}
-    .product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-    .product-card:hover .product-img-wrap img{transform:scale(1.04)}
-    .product-ig-btn{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.92);border:1px solid var(--border);cursor:pointer;border-radius:3px;padding:5px 9px;font-size:11px;color:var(--rose-dark);letter-spacing:.5px;font-family:'Jost',sans-serif;transition:background .2s;z-index:2}
-    .product-ig-btn:hover{background:white}
-    .badge{position:absolute;top:8px;left:8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:2px;font-weight:500;z-index:2}
-    .badge-best{background:#9C4400;color:white}
-    .badge-popular{background:var(--rose-dark);color:white}
-    .badge-new{background:var(--gold);color:var(--text-main)}
-    .badge-classic{background:#3A5A40;color:white}
-    .product-info{padding:13px}
-    .product-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:var(--text-main);margin-bottom:3px}
-    .product-variant{font-size:11px;color:var(--text-soft);margin-bottom:10px;letter-spacing:.3px;line-height:1.4}
-    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .product-price{font-family:'Jost',sans-serif;font-size:15px;font-weight:500;color:var(--rose-dark)}
-    .add-btn{background:var(--rose-dark);color:white;border:none;cursor:pointer;border-radius:2px;padding:7px 12px;font-size:11px;letter-spacing:1px;font-family:'Jost',sans-serif;transition:background .2s;white-space:nowrap}
-    .add-btn:hover{background:var(--rose)}
-
-    /* INSTAGRAM GRID */
-    .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .ig-cell{aspect-ratio:1;border-radius:3px;overflow:hidden;cursor:pointer;position:relative;border:1px solid var(--border)}
-    .ig-cell img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-    .ig-cell:hover img{transform:scale(1.06)}
-    .ig-overlay{position:absolute;inset:0;background:rgba(44,26,30,.55);opacity:0;transition:opacity .2s;display:flex;align-items:center;justify-content:center}
-    .ig-cell:hover .ig-overlay{opacity:1}
-    .ig-overlay-txt{color:white;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1px}
-    .ig-follow-btn{display:block;width:fit-content;margin:18px auto 0;background:none;border:1px solid var(--gold);color:var(--gold-dark);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:12px 28px;cursor:pointer;border-radius:2px;transition:background .2s;text-decoration:none}
-    .ig-follow-btn:hover{background:var(--gold-light)}
-
-    /* CUPONES */
-    .coupon-box{background:var(--white);border:1px dashed var(--gold);border-radius:4px;padding:20px;display:flex;gap:10px}
-    .coupon-input{flex:1;border:1px solid var(--border);border-radius:2px;padding:11px 14px;font-family:'Jost',sans-serif;font-size:14px;color:var(--text-main);background:var(--cream);letter-spacing:2px;text-transform:uppercase}
-    .coupon-input:focus{outline:none;border-color:var(--gold)}
-    .coupon-btn{background:var(--gold-dark);color:white;border:none;cursor:pointer;padding:11px 20px;border-radius:2px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1px;white-space:nowrap}
-    .coupon-msg{margin-top:10px;font-size:13px;min-height:18px}
-    .coupon-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-    .coupon-card{border-radius:4px;padding:14px;text-align:center}
-    .coupon-card.gold{background:var(--gold-light);border:1px dashed var(--gold)}
-    .coupon-card.rose{background:var(--rose-light);border:1px dashed var(--rose)}
-    .coupon-code{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:3px;font-weight:500}
-    .coupon-card.gold .coupon-code{color:var(--gold-dark)}
-    .coupon-card.rose .coupon-code{color:var(--rose-dark)}
-    .coupon-desc{font-size:12px;color:var(--text-soft);margin-top:3px}
-
-    /* RESEÑAS */
-    .reviews-list{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
-    .review-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:16px}
-    .review-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-    .review-avatar{width:38px;height:38px;border-radius:50%;background:var(--rose-light);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--rose-dark);font-weight:500;flex-shrink:0}
-    .review-name{font-size:14px;font-weight:500;color:var(--text-main)}
-    .review-date{font-size:11px;color:var(--text-soft)}
-    .review-stars{color:var(--gold);font-size:14px;margin-bottom:6px}
-    .review-text{font-size:13px;color:var(--text-soft);line-height:1.65;font-style:italic}
-    .review-form{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:20px}
-    .review-form-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--rose-dark);margin-bottom:14px}
-    .form-row{margin-bottom:12px}
-    .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media(max-width:500px){.form-row-2{grid-template-columns:1fr}}
-    .form-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);margin-bottom:5px;display:block}
-    .form-input,.form-textarea{width:100%;border:1px solid var(--border);border-radius:2px;padding:10px 13px;font-family:'Jost',sans-serif;font-size:13px;color:var(--text-main);background:var(--cream);transition:border-color .2s}
-    .form-textarea{height:85px;resize:vertical}
-    .form-input:focus,.form-textarea:focus{outline:none;border-color:var(--rose)}
-    .star-select{display:flex;gap:6px;margin:8px 0}
-    .star-btn{background:none;border:none;cursor:pointer;font-size:26px;color:#DDD;transition:color .15s,transform .1s;line-height:1}
-    .star-btn:hover{transform:scale(1.15)}
-    .star-btn.lit{color:var(--gold)}
-    .submit-btn{background:var(--rose-dark);color:white;border:none;cursor:pointer;padding:11px 26px;border-radius:2px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-top:6px;transition:background .2s}
-    .submit-btn:hover{background:var(--rose)}
-
-    /* CONTACTO */
-    .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
-    @media(max-width:600px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
-    .contact-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:18px 12px;text-align:center}
-    .contact-icon{font-size:26px;margin-bottom:8px;display:block}
-    .contact-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:3px}
-    .contact-val{font-size:13px;color:var(--rose-dark);font-weight:500;line-height:1.4}
-    .contact-form{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:22px}
-    .contact-form-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--rose-dark);margin-bottom:16px}
-
-    /* CART */
-    .cart-overlay{position:fixed;inset:0;background:rgba(44,26,30,.5);z-index:300;display:none;justify-content:flex-end}
-    .cart-overlay.open{display:flex}
-    .cart-drawer{background:var(--white);width:340px;max-width:100vw;height:100vh;display:flex;flex-direction:column;animation:slideIn .25s ease}
-    @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
-    .cart-header{background:var(--rose-dark);color:white;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-    .cart-header-title{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:1px}
-    .cart-close{background:none;border:none;color:white;cursor:pointer;font-size:22px;line-height:1;padding:4px;opacity:.8;transition:opacity .2s}
-    .cart-close:hover{opacity:1}
-    .cart-items{flex:1;padding:14px;overflow-y:auto}
-    .cart-item{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--border)}
-    .cart-item-img{width:56px;height:56px;border-radius:3px;overflow:hidden;flex-shrink:0;background:var(--rose-light)}
-    .cart-item-img img{width:100%;height:100%;object-fit:cover}
-    .cart-item-info{flex:1}
-    .cart-item-name{font-size:13px;font-weight:500;color:var(--text-main);margin-bottom:3px}
-    .cart-item-price{font-size:12px;color:var(--rose)}
-    .cart-qty{display:flex;align-items:center;gap:7px;margin-top:5px}
-    .qty-btn{background:var(--rose-light);border:1px solid var(--border);color:var(--rose-dark);cursor:pointer;width:22px;height:22px;border-radius:2px;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .15s}
-    .qty-btn:hover{background:var(--rose);color:white}
-    .qty-val{font-size:13px;font-weight:500;min-width:16px;text-align:center}
-    .cart-item-remove{background:none;border:none;cursor:pointer;color:#CCC;font-size:16px;transition:color .2s;padding:4px}
-    .cart-item-remove:hover{color:var(--rose)}
-    .empty-cart{text-align:center;padding:40px 16px;color:var(--text-soft);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6}
-    .cart-footer{padding:16px;border-top:1px solid var(--border);flex-shrink:0}
-    .cart-coupon-row{display:flex;gap:8px;margin-bottom:10px}
-    .cart-coupon-input{flex:1;border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-family:'Jost',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;background:var(--cream);color:var(--text-main)}
-    .cart-coupon-input:focus{outline:none;border-color:var(--gold)}
-    .cart-coupon-btn{background:none;border:1px solid var(--gold-dark);color:var(--gold-dark);cursor:pointer;padding:8px 13px;font-size:11px;border-radius:2px;font-family:'Jost',sans-serif;letter-spacing:1px}
-    .cart-coupon-btn:hover{background:var(--gold-light)}
-    .discount-msg{font-size:12px;color:#2E7D32;margin-bottom:8px}
-    .cart-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
-    .cart-subtotal-label{font-size:13px;color:var(--text-soft);letter-spacing:1px;text-transform:uppercase}
-    .cart-subtotal-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--rose-dark)}
-    .checkout-btn{width:100%;background:#25D366;color:white;border:none;cursor:pointer;padding:13px;border-radius:2px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s}
-    .checkout-btn:hover{background:#1EBE59}
-    .checkout-btn i{font-size:18px}
-    .note-encargo{font-size:11px;color:var(--text-soft);text-align:center;margin-top:8px;letter-spacing:.5px}
-
-    /* FOOTER */
-    .footer{background:var(--text-main);color:#C8B0B4;padding:32px 24px;text-align:center}
-    .footer-logo-img{width:56px;height:56px;border-radius:50%;object-fit:cover;margin:0 auto 10px;display:block;border:1px solid rgba(201,168,76,.3)}
-    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:4px;color:var(--gold);margin-bottom:4px}
-    .footer-tagline{font-size:12px;letter-spacing:2px;margin-bottom:16px;opacity:.6}
-    .footer-social{display:flex;justify-content:center;gap:14px;margin-bottom:16px}
-    .footer-social a{color:#C8B0B4;font-size:22px;transition:color .2s;text-decoration:none}
-    .footer-social a:hover{color:var(--gold)}
-    .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}
-    .footer-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C8B0B4;cursor:pointer;transition:color .2s;text-decoration:none}
-    .footer-link:hover{color:var(--gold)}
-    .footer-copy{font-size:11px;opacity:.4}
-
-    /* TOAST */
-    .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--rose-dark);color:white;padding:11px 22px;border-radius:3px;font-size:13px;z-index:400;transition:transform .3s;pointer-events:none;white-space:nowrap}
-    .toast.show{transform:translateX(-50%) translateY(0)}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isterra · Tejido y Moda</title>
+<meta name="description" content="ISTERRA | Tejido hecho a mano | Moda sostenible. Crochet · Palillos · Fibras vegetales. Confección 10-12 días. Envíos a todo Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="shop">
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a class="nav-logo" href="#">
-      <img src="img/logo.png" alt="Isterra">
-      <span class="nav-logo-text">Iste<span>rra</span></span>
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <div class="announce-track">
+    <span>Tejido 100% hecho a mano</span><span>Envíos a todo Chile</span><span>Confección 10–12 días</span><span>Síguenos en Instagram @isterra_textil</span>
+    <span>Tejido 100% hecho a mano</span><span>Envíos a todo Chile</span><span>Confección 10–12 días</span><span>Síguenos en Instagram @isterra_textil</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="nav-left">
+      <button class="nav-link" id="mega-trigger" onclick="toggleMegaMenu()">Colección</button>
+      <a class="nav-link" href="#about-section" onclick="scrollTo('about-section');return false;">Nosotras</a>
+      <a class="nav-link" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <a class="brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <span class="brand-word">Isterra</span>
+      <span class="brand-sub">Tejido y moda</span>
     </a>
-    <div class="nav-actions">
-      <button class="nav-btn" onclick="scrollTo('ig-section')" title="Instagram"><i class="ti ti-brand-instagram"></i></button>
-      <button class="nav-btn" onclick="scrollTo('contact-section')" title="Contacto"><i class="ti ti-mail"></i></button>
-      <button class="nav-btn" onclick="openCart()">
+    <div class="nav-right">
+      <button class="icon-btn" onclick="openSearch()" title="Buscar"><i class="ti ti-search"></i></button>
+      <button class="icon-btn" onclick="openCart()" title="Carrito">
         <i class="ti ti-shopping-bag"></i>
         <span class="cart-badge" id="cart-count">0</span>
       </button>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-logo-bg"><img src="img/logo.png" alt=""></div>
-    <div class="hero-pattern"></div>
-    <div class="hero-content">
-      <div class="hero-logo-circle"><img src="img/logo.png" alt="Isterra"></div>
-      <div class="hero-eyebrow">Moda sostenible · Coñaripe, Los Ríos</div>
-      <h1 class="hero-title">Tejido con<br><em>amor artesanal</em></h1>
-      <div class="hero-sub">Crochet &nbsp;·&nbsp; Palillos &nbsp;·&nbsp; Fibras vegetales &nbsp;·&nbsp; Diseños únicos</div>
-      <div class="hero-loc">✦ &nbsp; Confección 10–12 días &nbsp;·&nbsp; Envíos a todo Chile 🇨🇱 &nbsp; ✦</div>
-      <button class="hero-cta" onclick="scrollTo('products-section')">Ver colección</button>
-    </div>
   </div>
 
-  <!-- PRODUCTOS -->
-  <div class="section" id="products-section">
-    <h2 class="section-title">Nuestra colección</h2>
-    <div class="section-divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+  <!-- MEGA MENU -->
+  <div class="mega-menu" id="mega-menu">
+    <div class="mega-inner">
+      <div>
+        <div class="mega-col-title">Categorías</div>
+        <a class="mega-link" onclick="toggleMegaMenu(false);goToCategory('tops');return false;" href="#">Tops</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);goToCategory('sombreros');return false;" href="#">Sombreros</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);goToCategory('bolsos');return false;" href="#">Bolsos</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);goToCategory('chalecos');return false;" href="#">Chalecos</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);goToCategory('hogar');return false;" href="#">Hogar</a>
+      </div>
+      <div>
+        <div class="mega-col-title">Destacados</div>
+        <a class="mega-link" onclick="toggleMegaMenu(false);openQuickView(1);return false;" href="#">Top Clásico</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);openQuickView(4);return false;" href="#">Morral Hojas</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);openQuickView(2);return false;" href="#">Sombrero Margaritas</a>
+      </div>
+      <div>
+        <div class="mega-col-title">Materiales</div>
+        <span class="mega-link" style="cursor:default;color:var(--text-soft);font-size:15px;">Algodón</span>
+        <span class="mega-link" style="cursor:default;color:var(--text-soft);font-size:15px;">Lana</span>
+        <span class="mega-link" style="cursor:default;color:var(--text-soft);font-size:15px;">Fibras vegetales</span>
+      </div>
+      <div>
+        <div class="mega-col-title">Ayuda</div>
+        <a class="mega-link" onclick="toggleMegaMenu(false);scrollTo('contact-section');return false;" href="#">Contacto</a>
+        <a class="mega-link" onclick="toggleMegaMenu(false);scrollTo('newsletter-section');return false;" href="#">Cupones</a>
+      </div>
+      <div></div>
+      <div class="mega-promo">
+        <img src="img/catalog/p04.jpg" alt="Morral Hojas a la Tierra">
+        <div class="mega-promo-label">
+          <small>Pieza clásica</small>
+          <div>Morral Hojas a la Tierra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH PANEL -->
+<div class="search-panel" id="search-panel" onclick="closeSearchOutside(event)">
+  <div class="search-box" onclick="event.stopPropagation()">
+    <div class="search-box-row">
+      <i class="ti ti-search" style="font-size:20px;color:var(--text-soft);"></i>
+      <input type="text" id="search-input" placeholder="Buscar tops, sombreros, bolsos...">
+      <button class="icon-btn" onclick="closeSearch()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">Moda sostenible · Coñaripe, Los Ríos</div>
+    <h1 class="hero-title">Tejido con<br><em>amor artesanal</em></h1>
+    <p class="hero-desc">Cada pieza Isterra nace del crochet, los palillos y las fibras vegetales. Diseños únicos, confeccionados a mano, pensados para durar.</p>
+    <button class="hero-cta" onclick="scrollTo('products-section')">Ver colección</button>
+  </div>
+  <div class="hero-img">
+    <img src="img/ig/ig09.jpg" alt="Top terracota Isterra">
+  </div>
+</section>
+
+<!-- TWO PANEL SHOWCASE -->
+<section class="section reveal">
+  <div class="wrap">
+    <div class="two-panel">
+      <div class="panel" onclick="goToCategory('tops')">
+        <img src="img/ig/ig03.jpg" alt="Tops Isterra" loading="lazy">
+        <div class="panel-caption">
+          <small>Cálido. Artesanal. Único.</small>
+          <div>Tops de Temporada</div>
+        </div>
+      </div>
+      <div class="panel" onclick="goToCategory('chalecos')">
+        <img src="img/ig/ig04.jpg" alt="Chalecos Isterra" loading="lazy">
+        <div class="panel-caption">
+          <small>Abrigado. Suave. Atemporal.</small>
+          <div>Chalecos & Accesorios</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY CIRCLES -->
+<section class="section-tight section-alt reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Explora</div>
+      <h2 class="section-title">Compra por categoría</h2>
+    </div>
+    <div class="cat-row" id="cat-row"></div>
+  </div>
+</section>
+
+<!-- LIFESTYLE SPLIT 1 -->
+<section class="reveal" id="about-section">
+  <div class="life-split">
+    <div class="life-img">
+      <img src="img/ig/ig05.jpg" alt="Vestido Isterra hecho a mano">
+      <div class="life-card life-card-1">
+        <small>Desde</small>
+        <strong>Coñaripe, Los Ríos</strong>
+      </div>
+    </div>
+    <div class="life-text">
+      <div class="eyebrow">Sobre Isterra</div>
+      <h2>Hecho a mano,<br>hilo a hilo</h2>
+      <div class="life-divider"></div>
+      <p>Isterra nace en el sur de Chile, donde cada prenda se teje a crochet o palillos, una por una, sin líneas de producción ni procesos industriales. Usamos algodón, lana y fibras vegetales, eligiendo materiales que respetan el medioambiente y duran en el tiempo.</p>
+      <p>Cada pieza lleva nuestra etiqueta y entre 10 y 12 días de trabajo artesanal antes de llegar a tus manos.</p>
+      <button class="hero-cta" style="background:var(--rose-dark);color:white;" onclick="scrollTo('products-section')">Conoce la colección</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section section-alt reveal" id="products-section">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <span>Inicio</span><i class="ti ti-chevron-right"></i><span id="breadcrumb-label">Colección</span><span id="breadcrumb-cat" style="display:none;"></span>
+    </div>
+    <div class="section-head-row">
+      <div>
+        <div class="eyebrow">Más vendidos</div>
+        <h2 class="section-title">Nuestra colección</h2>
+      </div>
+      <button class="view-all" onclick="filterCat('todos', document.querySelector('.tab'))">Ver todo <i class="ti ti-arrow-right"></i></button>
+    </div>
     <div class="tabs">
-      <button class="tab active" onclick="filterCat('todos',this)">Todos</button>
-      <button class="tab" onclick="filterCat('tops',this)">Tops</button>
-      <button class="tab" onclick="filterCat('sombreros',this)">Sombreros</button>
-      <button class="tab" onclick="filterCat('bolsos',this)">Bolsos</button>
-      <button class="tab" onclick="filterCat('chalecos',this)">Chalecos</button>
-      <button class="tab" onclick="filterCat('hogar',this)">Hogar</button>
+      <button class="tab active" data-cat="todos" onclick="filterCat('todos',this)">Todos</button>
+      <button class="tab" data-cat="tops" onclick="filterCat('tops',this)">Tops</button>
+      <button class="tab" data-cat="sombreros" onclick="filterCat('sombreros',this)">Sombreros</button>
+      <button class="tab" data-cat="bolsos" onclick="filterCat('bolsos',this)">Bolsos</button>
+      <button class="tab" data-cat="chalecos" onclick="filterCat('chalecos',this)">Chalecos</button>
+      <button class="tab" data-cat="hogar" onclick="filterCat('hogar',this)">Hogar</button>
     </div>
     <div class="products-grid" id="products-grid"></div>
   </div>
+</section>
 
-  <!-- INSTAGRAM -->
-  <div class="section section-alt" id="ig-section">
-    <h2 class="section-title">En Instagram</h2>
-    <div class="section-divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-    <div class="ig-grid" id="ig-grid"></div>
-    <a class="ig-follow-btn" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">
-      <i class="ti ti-brand-instagram" style="vertical-align:-2px;margin-right:6px;"></i>Seguir @isterra_textil
-    </a>
-  </div>
-
-  <!-- CUPONES -->
-  <div class="section">
-    <h2 class="section-title">Cupones de descuento</h2>
-    <div class="section-divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-    <div class="coupon-box">
-      <input class="coupon-input" id="coupon-main" type="text" placeholder="Ingresa tu código aquí">
-      <button class="coupon-btn" onclick="applyCouponMain()">Aplicar</button>
+<!-- LIFESTYLE SPLIT 2 -->
+<section class="reveal">
+  <div class="life-split reverse">
+    <div class="life-img">
+      <img src="img/ig/ig08.jpg" alt="Gorro Isterra hecho a mano">
+      <div class="life-card life-card-2">
+        <small>Tiempo de confección</small>
+        <strong>10–12 días</strong>
+      </div>
     </div>
-    <div class="coupon-msg" id="coupon-msg-main"></div>
-    <div class="coupon-cards">
-      <div class="coupon-card gold"><div class="coupon-code">ISTERRA10</div><div class="coupon-desc">10% en tu primera compra</div></div>
-      <div class="coupon-card rose"><div class="coupon-code">AMOR15</div><div class="coupon-desc">15% en conjuntos y bolsos</div></div>
+    <div class="life-text">
+      <div class="eyebrow">Cómo trabajamos</div>
+      <h2>Tejido por encargo,<br>nunca en serie</h2>
+      <div class="life-divider"></div>
+      <p>Cada pedido se teje especialmente para ti. Eso significa esperar un poco más, pero también significa una prenda sin defectos de producción masiva, hecha con el tiempo que merece.</p>
+      <p>Una vez lista, la enviamos por Correos Chile a cualquier punto del país.</p>
+      <button class="hero-cta" style="background:var(--rose-dark);color:white;" onclick="scrollTo('contact-section')">Hacer un pedido</button>
     </div>
   </div>
+</section>
 
-  <!-- RESEÑAS -->
-  <div class="section section-alt">
-    <h2 class="section-title">Lo que dicen nuestras clientas</h2>
-    <div class="section-divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-    <div class="reviews-list" id="reviews-list"></div>
-    <div class="review-form">
+<!-- INSTAGRAM -->
+<section class="section section-alt reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">@isterra_textil</div>
+      <h2 class="section-title">Desde Instagram</h2>
+    </div>
+    <div class="ig-feature-grid" id="ig-grid"></div>
+    <div class="ig-cta-wrap">
+      <a class="ig-follow-btn" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">
+        <i class="ti ti-brand-instagram"></i> Seguir @isterra_textil
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Testimonios</div>
+      <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+    </div>
+    <div class="reviews-grid" id="reviews-grid"></div>
+    <div class="review-form-wrap">
       <div class="review-form-title">Comparte tu experiencia</div>
       <div class="form-row-2">
         <div class="form-row"><label class="form-label">Tu nombre</label><input class="form-input" id="rev-name" type="text" placeholder="María F."></div>
         <div class="form-row"><label class="form-label">Producto comprado</label><input class="form-input" id="rev-product" type="text" placeholder="Top Clásico Crochet"></div>
       </div>
-      <div class="form-row"><label class="form-label">Puntuación</label>
+      <div class="form-row">
+        <label class="form-label">Puntuación</label>
         <div class="star-select" id="star-select">
           <button class="star-btn" onclick="setStars(1)">★</button><button class="star-btn" onclick="setStars(2)">★</button>
           <button class="star-btn" onclick="setStars(3)">★</button><button class="star-btn" onclick="setStars(4)">★</button>
@@ -299,48 +247,129 @@
       </div>
       <div class="form-row"><label class="form-label">Tu reseña</label><textarea class="form-textarea" id="rev-text" placeholder="¿Cómo fue tu experiencia con Isterra?"></textarea></div>
       <button class="submit-btn" onclick="submitReview()">Publicar reseña</button>
-      <div id="rev-msg" style="margin-top:9px;font-size:13px;"></div>
+      <div id="rev-msg" style="margin-top:10px;font-size:13px;text-align:center;"></div>
     </div>
   </div>
+</section>
 
-  <!-- CONTACTO -->
-  <div class="section" id="contact-section">
-    <h2 class="section-title">Contacto y pedidos</h2>
-    <div class="section-divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-    <div class="contact-grid">
-      <div class="contact-card"><i class="ti ti-brand-instagram contact-icon" style="color:var(--rose);"></i><div class="contact-label">Instagram</div><div class="contact-val">@isterra_textil</div></div>
-      <div class="contact-card"><i class="ti ti-map-pin contact-icon" style="color:var(--rose);"></i><div class="contact-label">Ubicación</div><div class="contact-val">Coñaripe, Los Ríos</div></div>
-      <div class="contact-card"><i class="ti ti-clock contact-icon" style="color:var(--gold);"></i><div class="contact-label">Confección</div><div class="contact-val">10–12 días hábiles</div></div>
-      <div class="contact-card"><i class="ti ti-truck contact-icon" style="color:var(--gold);"></i><div class="contact-label">Envíos</div><div class="contact-val">Todo Chile 🇨🇱</div></div>
+<!-- NEWSLETTER + CUPONES -->
+<section class="newsletter-band reveal" id="newsletter-section">
+  <div class="eyebrow">Ofertas</div>
+  <h2>Cupones de descuento</h2>
+  <p>Ingresa tu código al pagar o suscríbete para recibir promociones nuevas</p>
+  <div class="coupon-cards">
+    <div class="coupon-card"><div class="coupon-code">ISTERRA10</div><div class="coupon-desc">10% primera compra</div></div>
+    <div class="coupon-card"><div class="coupon-code">AMOR15</div><div class="coupon-desc">15% conjuntos y bolsos</div></div>
+  </div>
+  <div class="newsletter-form">
+    <input type="email" id="newsletter-email" placeholder="tu@correo.com">
+    <button onclick="submitNewsletter()">Suscribirme</button>
+  </div>
+  <div class="newsletter-msg" id="newsletter-msg"></div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section reveal" id="contact-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Hablemos</div>
+      <h2 class="section-title">Contacto y pedidos</h2>
     </div>
-    <div class="contact-form">
-      <div class="contact-form-title">Escríbenos</div>
+    <div class="contact-grid">
+      <div class="contact-card"><i class="ti ti-brand-instagram contact-icon"></i><div class="contact-label">Instagram</div><div class="contact-val">@isterra_textil</div></div>
+      <div class="contact-card"><i class="ti ti-map-pin contact-icon"></i><div class="contact-label">Ubicación</div><div class="contact-val">Coñaripe, Los Ríos</div></div>
+      <div class="contact-card"><i class="ti ti-clock contact-icon"></i><div class="contact-label">Confección</div><div class="contact-val">10–12 días hábiles</div></div>
+      <div class="contact-card"><i class="ti ti-truck contact-icon"></i><div class="contact-label">Envíos</div><div class="contact-val">Todo Chile 🇨🇱</div></div>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="review-form-title">Escríbenos</div>
       <div class="form-row-2">
         <div class="form-row"><label class="form-label">Nombre</label><input class="form-input" id="c-name" type="text" placeholder="Tu nombre"></div>
         <div class="form-row"><label class="form-label">Correo</label><input class="form-input" id="c-email" type="email" placeholder="tucorreo@mail.com"></div>
       </div>
       <div class="form-row"><label class="form-label">Mensaje</label><textarea class="form-textarea" id="c-msg" placeholder="Consultas sobre tallas, colores, pedidos personalizados..."></textarea></div>
       <button class="submit-btn" onclick="submitContact()"><i class="ti ti-send" style="vertical-align:-2px;margin-right:4px;"></i>Enviar mensaje</button>
-      <div id="contact-msg" style="margin-top:9px;font-size:13px;"></div>
+      <div id="contact-msg" style="margin-top:10px;font-size:13px;text-align:center;"></div>
     </div>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <img class="footer-logo-img" src="img/logo.png" alt="Isterra">
-    <div class="footer-brand">ISTERRA</div>
-    <div class="footer-tagline">Tejido hecho a mano · Moda sostenible</div>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i></a>
-      <a href="https://wa.me/56966174927" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i></a>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <img class="footer-brand-logo" src="img/logo.png" alt="Isterra">
+      <div class="footer-brand-name">ISTERRA</div>
+      <p class="footer-brand-desc">Tejido hecho a mano y moda sostenible desde Coñaripe, Los Ríos. Crochet, palillos y fibras vegetales.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i></a>
+        <a href="https://wa.me/56966174927" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i></a>
+        <a href="mailto:isterratejidoymoda@gmail.com"><i class="ti ti-mail"></i></a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a class="footer-link" onclick="scrollTo('products-section')">Colección</a>
-      <a class="footer-link" onclick="scrollTo('ig-section')">Instagram</a>
-      <a class="footer-link" onclick="scrollTo('contact-section')">Contacto</a>
+    <div>
+      <div class="footer-col-title">Colección</div>
+      <div class="footer-link-list">
+        <a onclick="goToCategory('tops');return false;" href="#">Tops</a>
+        <a onclick="goToCategory('sombreros');return false;" href="#">Sombreros</a>
+        <a onclick="goToCategory('bolsos');return false;" href="#">Bolsos</a>
+        <a onclick="goToCategory('chalecos');return false;" href="#">Chalecos</a>
+        <a onclick="goToCategory('hogar');return false;" href="#">Hogar</a>
+      </div>
     </div>
-    <div class="footer-copy">© 2025 Isterra Textil · Coñaripe, Los Ríos · Diseños únicos hechos a mano</div>
-  </footer>
+    <div>
+      <div class="footer-col-title">Ayuda</div>
+      <div class="footer-link-list">
+        <a onclick="scrollTo('contact-section');return false;" href="#">Contacto</a>
+        <a href="https://wa.me/56966174927" target="_blank" rel="noopener">Pedidos por WhatsApp</a>
+        <a onclick="scrollTo('newsletter-section');return false;" href="#">Cupones</a>
+        <span style="font-size:13px;display:block;margin-top:2px;">Envíos: Correos Chile</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Recibe novedades</div>
+      <p style="font-size:12px;line-height:1.7;color:#C9B0B6;margin-bottom:14px;">Sé la primera en saber de nuevas colecciones y promociones.</p>
+      <div class="newsletter-form" style="max-width:100%;">
+        <input type="email" placeholder="tu@correo.com" id="newsletter-email-2">
+        <button onclick="document.getElementById('newsletter-email').value=document.getElementById('newsletter-email-2').value;submitNewsletter();showToast('¡Gracias por suscribirte!')">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Isterra Textil · Coñaripe, Los Ríos</span>
+    <div class="footer-payment"><i class="ti ti-brand-whatsapp"></i><i class="ti ti-truck-delivery"></i><i class="ti ti-heart-handshake"></i></div>
+  </div>
+</footer>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal-overlay" id="qv-overlay" onclick="if(event.target===this)closeQuickView()">
+  <div class="qv-modal">
+    <button class="qv-close" onclick="closeQuickView()"><i class="ti ti-x"></i></button>
+    <div class="qv-img-wrap"><img id="qv-img" src="" alt=""></div>
+    <div class="qv-info">
+      <div class="qv-badge" id="qv-badge-wrap"></div>
+      <div class="qv-name" id="qv-name"></div>
+      <div class="qv-variant" id="qv-variant"></div>
+      <div class="qv-price" id="qv-price"></div>
+
+      <div id="qv-swatches-wrap">
+        <div class="qv-section-label">Color</div>
+        <div class="qv-swatches" id="qv-swatches"></div>
+      </div>
+
+      <div class="qv-section-label">Cantidad</div>
+      <div class="qv-qty-row">
+        <button class="qv-qty-btn" onclick="qvChangeQty(-1)">−</button>
+        <span class="qv-qty-val" id="qv-qty-val">1</span>
+        <button class="qv-qty-btn" onclick="qvChangeQty(1)">+</button>
+      </div>
+
+      <button class="qv-add" onclick="qvAddToCart()">Agregar al carrito</button>
+      <button class="qv-wa" onclick="qvWhatsApp()"><i class="ti ti-brand-whatsapp"></i> Consultar por WhatsApp</button>
+
+      <div class="qv-desc" id="qv-desc"></div>
+    </div>
+  </div>
 </div>
 
 <!-- CART DRAWER -->
@@ -361,206 +390,18 @@
         <span class="cart-subtotal-label">Total estimado</span>
         <span class="cart-subtotal-val" id="cart-total">$0</span>
       </div>
-      <button class="checkout-btn" onclick="checkout()">
-        <i class="ti ti-brand-whatsapp"></i>Confirmar por WhatsApp
-      </button>
+      <button class="checkout-btn" onclick="checkout()"><i class="ti ti-brand-whatsapp"></i>Confirmar por WhatsApp</button>
       <div class="note-encargo">Pedidos vía WhatsApp · Confección 10–12 días · Envío Correos Chile</div>
     </div>
   </div>
 </div>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ti ti-arrow-up"></i></button>
+
+<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<script>
-const PRODUCTS = [
-  {id:1,  name:'Top Clásico Crochet',     cat:'tops',      price:29000, variant:'Blanco · Pompones · Hecho a mano',    badge:'best',    img:'img/catalog/p01.jpg'},
-  {id:2,  name:'Sombrero Margaritas',      cat:'sombreros', price:26000, variant:'Negro / Beige · Margaritas bordadas', badge:'popular', img:'img/catalog/p02.jpg'},
-  {id:3,  name:'Tops Veraniegos',          cat:'tops',      price:27000, variant:'4 colores pastel · Personalizable',   badge:'new',     img:'img/catalog/p03.jpg'},
-  {id:4,  name:'Morral Hojas a la Tierra', cat:'bolsos',    price:38000, variant:'Multicolor · Tejido artesanal',       badge:'classic', img:'img/catalog/p04.jpg'},
-  {id:5,  name:'Halter Top Natural',       cat:'tops',      price:30000, variant:'Beige · Encaje crochet · Hojas',      badge:'best',    img:'img/catalog/p05.jpg'},
-  {id:6,  name:'Tops en Stock',            cat:'tops',      price:26000, variant:'Naranja / Menta · Botones madera',    badge:'new',     img:'img/catalog/p06.jpg'},
-  {id:7,  name:'Chaleco Luci S/Mangas',    cat:'chalecos',  price:36000, variant:'Salmón · Tejido palillos · Suave',    badge:'new',     img:'img/catalog/p07.jpg'},
-  {id:8,  name:'Halter Top Negro Malla',   cat:'tops',      price:30000, variant:'Negro · Malla crochet · Exclusivo',   badge:'',        img:'img/catalog/p08.jpg'},
-  {id:9,  name:'Set Spa Ecológico',        cat:'hogar',     price:22000, variant:'Algodón natural · Hecho a mano',      badge:'',        img:'img/catalog/p09.jpg'},
-  {id:10, name:'Bolsito Circular Boho',    cat:'bolsos',    price:24000, variant:'Café · Flecos · Botón handmade',      badge:'',        img:'img/catalog/p10.jpg'},
-  {id:11, name:'Sombrero Margaritas V2',   cat:'sombreros', price:26000, variant:'Beige / Verde · Margaritas bordadas', badge:'',        img:'img/catalog/p11.jpg'},
-  {id:12, name:'Top Azul Celeste',         cat:'tops',      price:28000, variant:'Celeste · Hojas tejidas · Delicado',  badge:'',        img:'img/catalog/p12.jpg'},
-  {id:13, name:'Top Limonada Rayas',       cat:'tops',      price:27000, variant:'Menta/Amarillo/Blanco · Botones',     badge:'new',     img:'img/catalog/p13.jpg'},
-  {id:14, name:'Mural Macramé',            cat:'hogar',     price:45000, variant:'Algodón natural · Rama madera',       badge:'',        img:'img/catalog/p14.jpg'},
-  {id:15, name:'Tops en Stock Colores',    cat:'tops',      price:25000, variant:'Lila / Amarillo · Margaritas',        badge:'',        img:'img/catalog/p15.jpg'},
-];
-
-const IG_ITEMS = [
-  {label:'Top beige botones',      img:'img/ig/ig01.jpg'},
-  {label:'Top menta Isterra',      img:'img/ig/ig02.jpg'},
-  {label:'Top amarillo margaritas',img:'img/ig/ig03.jpg'},
-  {label:'Chaleco crema grueso',   img:'img/ig/ig04.jpg'},
-  {label:'Vestido crema botones',  img:'img/ig/ig05.jpg'},
-  {label:'Halter natural flatlay', img:'img/ig/ig06.jpg'},
-  {label:'Top naranja detalle',    img:'img/ig/ig07.jpg'},
-  {label:'Gorro café bosque',      img:'img/ig/ig08.jpg'},
-  {label:'Top terracota bosque',   img:'img/ig/ig09.jpg'},
-];
-
-const COUPONS = {'ISTERRA10':10,'AMOR15':15,'ISTERRA20':20};
-const REVIEWS_BASE = [
-  {name:'Valentina M.',product:'Top Clásico Crochet',stars:5,text:'Compré el top clásico y es HERMOSO. La calidad es increíble, cada detalle se nota hecho con amor. ¡Llegó en 10 días y perfecto!',date:'Diciembre 2024'},
-  {name:'Sofía R.',product:'Morral Hojas a la Tierra',stars:5,text:'Mi morral de Isterra me lo preguntan en todas partes. Moda sostenible y única, no hay otra igual. 100% recomendada.',date:'Noviembre 2024'},
-  {name:'Camila A.',product:'Tops Veraniegos',stars:4,text:'El top que pedí quedó hermoso y el color exacto al de la foto. Vale cada día de espera.',date:'Octubre 2024'},
-];
-
-let cart=[], currentDiscount=0, reviewStars=0, reviews=[...REVIEWS_BASE];
-
-function badgeHTML(b){
-  if(b==='best') return '<span class="badge badge-best">⭐ Favorito</span>';
-  if(b==='popular') return '<span class="badge badge-popular">🔥 Popular</span>';
-  if(b==='new') return '<span class="badge badge-new">Nuevo</span>';
-  if(b==='classic') return '<span class="badge badge-classic">Clásico</span>';
-  return '';
-}
-
-function renderProducts(cat){
-  const g=document.getElementById('products-grid');
-  const list=cat==='todos'?PRODUCTS:PRODUCTS.filter(p=>p.cat===cat);
-  g.innerHTML=list.map(p=>`
-    <div class="product-card">
-      <div class="product-img-wrap">
-        ${badgeHTML(p.badge)}
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
-        <button class="product-ig-btn" onclick="window.open('https://www.instagram.com/isterra_textil/','_blank')">Ver en IG →</button>
-      </div>
-      <div class="product-info">
-        <div class="product-name">${p.name}</div>
-        <div class="product-variant">${p.variant}</div>
-        <div class="product-bottom">
-          <div class="product-price">$${p.price.toLocaleString('es-CL')} CLP</div>
-          <button class="add-btn" onclick="addToCart(${p.id})">+ Agregar</button>
-        </div>
-      </div>
-    </div>`).join('');
-}
-
-function filterCat(cat,btn){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  renderProducts(cat);
-}
-
-function renderIG(){
-  document.getElementById('ig-grid').innerHTML=IG_ITEMS.map(i=>`
-    <div class="ig-cell" onclick="window.open('https://www.instagram.com/isterra_textil/','_blank')">
-      <img src="${i.img}" alt="${i.label}" loading="lazy">
-      <div class="ig-overlay"><span class="ig-overlay-txt">♥ Ver en Instagram</span></div>
-    </div>`).join('');
-}
-
-function renderReviews(){
-  document.getElementById('reviews-list').innerHTML=reviews.map(r=>`
-    <div class="review-card">
-      <div class="review-header">
-        <div class="review-avatar">${r.name.charAt(0)}</div>
-        <div><div class="review-name">${r.name}</div><div class="review-date">${r.product?r.product+' · ':''}${r.date}</div></div>
-      </div>
-      <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
-      <div class="review-text">"${r.text}"</div>
-    </div>`).join('');
-}
-
-function addToCart(id){
-  const p=PRODUCTS.find(x=>x.id===id);
-  const ex=cart.find(x=>x.id===id);
-  if(ex) ex.qty+=1; else cart.push({...p,qty:1});
-  updateCartUI(); openCart();
-  showToast(p.name+' agregado al carrito');
-}
-function changeQty(id,d){
-  const item=cart.find(x=>x.id===id);
-  if(!item)return;
-  item.qty+=d;
-  if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
-  updateCartUI();
-}
-function removeFromCart(id){cart=cart.filter(x=>x.id!==id);updateCartUI();}
-function updateCartUI(){
-  const count=cart.reduce((a,b)=>a+b.qty,0);
-  document.getElementById('cart-count').textContent=count;
-  const list=document.getElementById('cart-items-list');
-  if(!cart.length){
-    list.innerHTML='<div class="empty-cart">Tu carrito está vacío.<br><br>Elige algo que te encante ✨</div>';
-    document.getElementById('cart-total').textContent='$0';
-    return;
-  }
-  list.innerHTML=cart.map(i=>`
-    <div class="cart-item">
-      <div class="cart-item-img"><img src="${i.img}" alt="${i.name}"></div>
-      <div class="cart-item-info">
-        <div class="cart-item-name">${i.name}</div>
-        <div class="cart-item-price">$${i.price.toLocaleString('es-CL')} c/u</div>
-        <div class="cart-qty">
-          <button class="qty-btn" onclick="changeQty(${i.id},-1)">−</button>
-          <span class="qty-val">${i.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${i.id},1)">+</button>
-        </div>
-      </div>
-      <button class="cart-item-remove" onclick="removeFromCart(${i.id})">✕</button>
-    </div>`).join('');
-  const sub=cart.reduce((a,b)=>a+b.price*b.qty,0);
-  const total=sub*(1-currentDiscount/100);
-  document.getElementById('cart-total').textContent='$'+Math.round(total).toLocaleString('es-CL')+' CLP';
-}
-function openCart(){document.getElementById('cart-overlay').classList.add('open');updateCartUI();}
-function closeCart(){document.getElementById('cart-overlay').classList.remove('open');}
-function closeCartOutside(e){if(e.target.id==='cart-overlay')closeCart();}
-
-function applyCartCoupon(){
-  const code=document.getElementById('cart-coupon').value.trim().toUpperCase();
-  const msg=document.getElementById('cart-discount-msg');
-  if(COUPONS[code]){currentDiscount=COUPONS[code];msg.innerHTML='<div class="discount-msg">✓ Descuento '+currentDiscount+'% aplicado</div>';updateCartUI();}
-  else{msg.innerHTML='<div style="color:#C62828;font-size:12px;margin-bottom:8px;">Código no válido</div>';}
-}
-function applyCouponMain(){
-  const code=document.getElementById('coupon-main').value.trim().toUpperCase();
-  const msg=document.getElementById('coupon-msg-main');
-  if(COUPONS[code]){currentDiscount=COUPONS[code];msg.innerHTML='<span style="color:#2E7D32;">✓ Código <strong>'+code+'</strong> activado — '+COUPONS[code]+'% de descuento</span>';showToast('Cupón '+code+': '+COUPONS[code]+'% OFF');}
-  else{msg.innerHTML='<span style="color:#C62828;">Código no válido. Prueba ISTERRA10 o AMOR15</span>';}
-}
-function checkout(){
-  if(!cart.length){showToast('Tu carrito está vacío');return;}
-  const sub=cart.reduce((a,b)=>a+b.price*b.qty,0);
-  const total=Math.round(sub*(1-currentDiscount/100));
-  const items=cart.map(i=>'• '+i.name+' x'+i.qty+' — $'+( i.price*i.qty).toLocaleString('es-CL')+' CLP').join('\n');
-  const disc=currentDiscount?'\n🏷️ Descuento: '+currentDiscount+'%':'';
-  const msg='¡Hola Isterra! Quiero hacer un encargo:\n\n'+items+disc+'\n\n💰 *Total estimado: $'+total.toLocaleString('es-CL')+' CLP*\n\n¿Me confirmas disponibilidad y tallas? ¡Gracias! 🪡';
-  window.open('https://wa.me/56966174927?text='+encodeURIComponent(msg),'_blank');
-}
-function setStars(n){reviewStars=n;document.querySelectorAll('.star-btn').forEach((b,i)=>b.classList.toggle('lit',i<n));}
-function submitReview(){
-  const name=document.getElementById('rev-name').value.trim();
-  const text=document.getElementById('rev-text').value.trim();
-  const product=document.getElementById('rev-product').value.trim();
-  const msg=document.getElementById('rev-msg');
-  if(!name||!text||!reviewStars){msg.innerHTML='<span style="color:#C62828">Completa nombre, estrellas y reseña.</span>';return;}
-  reviews.unshift({name,product,stars:reviewStars,text,date:'Hoy'});
-  renderReviews();
-  document.getElementById('rev-name').value='';document.getElementById('rev-text').value='';document.getElementById('rev-product').value='';
-  setStars(0);msg.innerHTML='<span style="color:#2E7D32">✓ ¡Gracias por tu reseña!</span>';
-  setTimeout(()=>msg.innerHTML='',4000);showToast('¡Reseña publicada! Gracias ✨');
-}
-function submitContact(){
-  const n=document.getElementById('c-name').value.trim();
-  const e=document.getElementById('c-email').value.trim();
-  const t=document.getElementById('c-msg').value.trim();
-  const msg=document.getElementById('contact-msg');
-  if(!n||!e||!t){msg.innerHTML='<span style="color:#C62828">Completa todos los campos.</span>';return;}
-  msg.innerHTML='<span style="color:#2E7D32">✓ Mensaje recibido. Te responderemos pronto.</span>';
-  document.getElementById('c-name').value='';document.getElementById('c-email').value='';document.getElementById('c-msg').value='';
-  showToast('Mensaje enviado ✓');
-}
-function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
-function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800);}
-
-renderProducts('todos');
-renderIG();
-renderReviews();
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
