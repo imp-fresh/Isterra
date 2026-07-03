@@ -466,6 +466,22 @@ function toggleAboutMenu(force){
   menu.classList.toggle('open');
 }
 
+/* ============ MOBILE MENU (botón hamburguesa) ============
+   Da acceso, solo en móvil, a los mismos 3 links que .nav-left tiene
+   en desktop. No duplica lógica: al elegir una opción, llama a
+   toggleMegaMenu(true) o toggleAboutMenu(true), que son las mismas
+   funciones que usa el desktop. */
+function toggleMobileMenu(force){
+  const panel = document.getElementById('mobile-menu-panel');
+  if(!panel) return;
+  toggleMegaMenu(false);
+  toggleAboutMenu(false);
+  if(force===false){ panel.classList.remove('open'); return; }
+  if(force===true){ panel.classList.add('open'); return; }
+  panel.classList.toggle('open');
+}
+function closeMobileMenu(){ toggleMobileMenu(false); }
+
 /* ============ BÚSQUEDA ============ */
 function openSearch(){
   document.getElementById('search-panel').classList.add('open');
@@ -589,15 +605,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
   initLifeRotator('life-rotator-tejido-encargo', LIFE_ROTATOR_TEJIDO_ENCARGO);
 
   document.addEventListener('click', (e)=>{
+    const mobilePanel = document.getElementById('mobile-menu-panel');
+    const clickedInsideMobilePanel = !!(mobilePanel && mobilePanel.contains(e.target));
+
     const megaTrigger = document.getElementById('mega-trigger');
     const megaMenu = document.getElementById('mega-menu');
-    if(megaMenu && megaTrigger && !megaTrigger.contains(e.target) && !megaMenu.contains(e.target)){
+    if(megaMenu && megaTrigger && !megaTrigger.contains(e.target) && !megaMenu.contains(e.target) && !clickedInsideMobilePanel){
       megaMenu.classList.remove('open');
     }
     const aboutTrigger = document.getElementById('about-trigger');
     const aboutMenu = document.getElementById('about-menu');
-    if(aboutMenu && aboutTrigger && !aboutTrigger.contains(e.target) && !aboutMenu.contains(e.target)){
+    if(aboutMenu && aboutTrigger && !aboutTrigger.contains(e.target) && !aboutMenu.contains(e.target) && !clickedInsideMobilePanel){
       aboutMenu.classList.remove('open');
+    }
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    if(mobilePanel && mobileBtn && !mobileBtn.contains(e.target) && !mobilePanel.contains(e.target)){
+      mobilePanel.classList.remove('open');
     }
   });
 

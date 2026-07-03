@@ -570,6 +570,26 @@ button{font-family:inherit;cursor:pointer}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
+/* ============ MOBILE MENU (botón + panel) ============
+   El botón solo se muestra en móvil (ver media query más abajo).
+   El panel reutiliza toggleMegaMenu()/toggleAboutMenu() ya existentes,
+   así que abre exactamente los mismos paneles que en desktop. */
+.mobile-menu-btn{display:none}
+.mobile-menu-panel{
+  display:none;
+  position:absolute;left:0;right:0;top:100%;background:var(--white);
+  border-bottom:1px solid var(--border);box-shadow:var(--shadow);
+  flex-direction:column;padding:8px 0;z-index:150;
+}
+.mobile-menu-panel.open{display:flex}
+.mobile-menu-link{
+  background:none;border:none;cursor:pointer;text-decoration:none;color:var(--text-main);
+  font-size:14px;letter-spacing:.5px;padding:15px 24px;display:flex;align-items:center;
+  justify-content:space-between;border-bottom:1px solid var(--border);width:100%;text-align:left;
+}
+.mobile-menu-link:last-child{border-bottom:none}
+.mobile-menu-link i{font-size:17px;color:var(--text-soft)}
+
 /* responsive helpers */
 @media(max-width:780px){
   .nav-left{display:none}
@@ -578,4 +598,5 @@ button{font-family:inherit;cursor:pointer}
   .section-tight{padding:40px 18px}
   .mega-inner{grid-template-columns:1fr 1fr;gap:24px}
   .mega-promo{display:none}
+  .mobile-menu-btn{display:flex}
 }
