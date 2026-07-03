@@ -71,7 +71,7 @@
       </div>
       <div></div>
       <div class="mega-promo">
-        <img src="img/catalog/p04.jpg" alt="Morral Hojas a la Tierra">
+        <img src="img/catalog/bolsos/morral-hojas-tierra.jpg" alt="Morral Hojas a la Tierra">
         <div class="mega-promo-label">
           <small>Pieza clásica</small>
           <div>Morral Hojas a la Tierra</div>
@@ -118,6 +118,8 @@
     <button class="hero-cta" onclick="goToCategory('todos')">Ver colección</button>
   </div>
   <div class="hero-dots" id="hero-dots"></div>
+  <button class="hero-arrow hero-arrow-prev" onclick="heroPrev()" aria-label="Foto anterior"><i class="ti ti-chevron-left"></i></button>
+  <button class="hero-arrow hero-arrow-next" onclick="heroNext()" aria-label="Foto siguiente"><i class="ti ti-chevron-right"></i></button>
 </section>
 
 <!-- TWO PANEL SHOWCASE -->
@@ -157,7 +159,7 @@
 <section class="reveal" id="about-section">
   <div class="life-split">
     <div class="life-img">
-      <img src="img/ig/ig05.jpg" alt="Vestido Isterra hecho a mano">
+      <div class="life-rot" id="life-rotator-hecho-a-mano"></div>
       <div class="life-card life-card-1">
         <small>Desde</small>
         <strong>Coñaripe, Los Ríos</strong>
@@ -197,7 +199,7 @@
 <section class="reveal">
   <div class="life-split reverse">
     <div class="life-img">
-      <img src="img/ig/ig08.jpg" alt="Gorro Isterra hecho a mano">
+      <div class="life-rot" id="life-rotator-tejido-encargo"></div>
       <div class="life-card life-card-2">
         <small>Tiempo de confección</small>
         <strong>10–12 días</strong>
@@ -352,29 +354,39 @@
 <div class="modal-overlay" id="qv-overlay" onclick="if(event.target===this)closeQuickView()">
   <div class="qv-modal">
     <button class="qv-close" onclick="closeQuickView()"><i class="ti ti-x"></i></button>
-    <div class="qv-img-wrap"><img id="qv-img" src="" alt=""></div>
-    <div class="qv-info">
-      <div class="qv-badge" id="qv-badge-wrap"></div>
-      <div class="qv-name" id="qv-name"></div>
-      <div class="qv-variant" id="qv-variant"></div>
-      <div class="qv-price" id="qv-price"></div>
-
-      <div id="qv-swatches-wrap">
-        <div class="qv-section-label">Color</div>
-        <div class="qv-swatches" id="qv-swatches"></div>
+    <div class="qv-top">
+      <div class="qv-img-col">
+        <div class="qv-img-wrap"><img id="qv-img" src="" alt=""></div>
+        <div class="qv-gallery" id="qv-gallery-wrap"></div>
       </div>
+      <div class="qv-info">
+        <div class="qv-badge" id="qv-badge-wrap"></div>
+        <div class="qv-name" id="qv-name"></div>
+        <div class="qv-variant" id="qv-variant"></div>
+        <div class="qv-price" id="qv-price"></div>
 
-      <div class="qv-section-label">Cantidad</div>
-      <div class="qv-qty-row">
-        <button class="qv-qty-btn" onclick="qvChangeQty(-1)">−</button>
-        <span class="qv-qty-val" id="qv-qty-val">1</span>
-        <button class="qv-qty-btn" onclick="qvChangeQty(1)">+</button>
+        <div id="qv-swatches-wrap">
+          <div class="qv-section-label">Color</div>
+          <div class="qv-swatches" id="qv-swatches"></div>
+        </div>
+
+        <div class="qv-section-label">Cantidad</div>
+        <div class="qv-qty-row">
+          <button class="qv-qty-btn" onclick="qvChangeQty(-1)">−</button>
+          <span class="qv-qty-val" id="qv-qty-val">1</span>
+          <button class="qv-qty-btn" onclick="qvChangeQty(1)">+</button>
+        </div>
+
+        <button class="qv-add" onclick="qvAddToCart()">Agregar al carrito</button>
+        <button class="qv-wa" onclick="qvWhatsApp()"><i class="ti ti-brand-whatsapp"></i> Consultar por WhatsApp</button>
+
+        <div class="qv-desc" id="qv-desc"></div>
       </div>
+    </div>
 
-      <button class="qv-add" onclick="qvAddToCart()">Agregar al carrito</button>
-      <button class="qv-wa" onclick="qvWhatsApp()"><i class="ti ti-brand-whatsapp"></i> Consultar por WhatsApp</button>
-
-      <div class="qv-desc" id="qv-desc"></div>
+    <div class="qv-recommend" id="qv-recommend-wrap">
+      <div class="qv-recommend-title">Te puede interesar</div>
+      <div class="qv-recommend-grid" id="qv-recommend-grid"></div>
     </div>
   </div>
 </div>
@@ -409,6 +421,7 @@
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
+<script src="js/catalog-data.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

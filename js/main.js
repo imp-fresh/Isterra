@@ -1,57 +1,6 @@
-/* ============ DATOS DE PRODUCTOS ============ */
-const PRODUCTS = [
-  {id:1,  name:'Top Clásico Crochet',     cat:'tops',      price:29000, variant:'Blanco · Pompones · Hecho a mano',    badge:'best',    img:'img/catalog/p01.jpg', swatches:['#F7F3EC'], desc:'Pieza icónica tejida a crochet con detalle de pompones en el borde. Encaje delicado y tirantes ajustables.'},
-  {id:2,  name:'Sombrero Margaritas',      cat:'sombreros', price:26000, variant:'Negro / Beige · Margaritas bordadas', badge:'popular', img:'img/catalog/p02.jpg', swatches:['#1A1A1A','#D9C9A8'], desc:'Gorro tejido a crochet con margaritas bordadas a mano. Cómodo, fresco y con mucho carácter.'},
-  {id:3,  name:'Tops Veraniegos',          cat:'tops',      price:27000, variant:'4 colores pastel · Personalizable',   badge:'new',     img:'img/catalog/p03.jpg', swatches:['#F5E6D8','#E8A9A0','#C9C0E0','#A8C3A0'], desc:'Disponible en 4 tonos pastel. Diseño con colgante de hoja tejida y amarre ajustable al cuello.'},
-  {id:4,  name:'Morral Hojas a la Tierra', cat:'bolsos',    price:38000, variant:'Multicolor · Tejido artesanal',       badge:'classic', impact:true, img:'img/catalog/p04.jpg', swatches:['#A8C3A0','#D9C9A8','#C17B5E'], desc:'Una de nuestras piezas más queridas. Bolso tipo morral con cordón ajustable, hojas tejidas y borlas decorativas.'},
-  {id:5,  name:'Halter Top Natural',       cat:'tops',      price:30000, variant:'Beige · Encaje crochet · Hojas',      badge:'best',    img:'img/catalog/p05.jpg', swatches:['#E8DCC8'], desc:'Top halter en algodón natural con encaje calado y colgantes en forma de hoja. Amarre al cuello.'},
-  {id:6,  name:'Tops en Stock',            cat:'tops',      price:26000, variant:'Naranja / Menta · Botones madera',    badge:'new',     img:'img/catalog/p06.jpg', swatches:['#E0923D','#A8C3A0'], desc:'Listos para enviar de inmediato. Tejido a crochet con botones de madera y terminación festoneada.'},
-  {id:7,  name:'Chaleco Luci S/Mangas',    cat:'chalecos',  price:36000, variant:'Salmón · Tejido palillos · Suave',    badge:'new',     img:'img/catalog/p07.jpg', swatches:['#D98B7A'], desc:'Chaleco sin mangas tejido a palillos, textura acanalada y muy suave al tacto. Ideal sobre camisa o blusa.'},
-  {id:8,  name:'Halter Top Negro Malla',   cat:'tops',      price:30000, variant:'Negro · Malla crochet · Exclusivo',   badge:'',        img:'img/catalog/p08.jpg', swatches:['#1A1A1A'], desc:'Top de malla abierta tejida a crochet, diseño halter exclusivo con textura de rombos.'},
-  {id:9,  name:'Set Spa Ecológico',        cat:'hogar',     price:22000, variant:'Algodón natural · Hecho a mano',      badge:'',        img:'img/catalog/p09.jpg', swatches:['#F0E6D2'], desc:'Set de spa en algodón 100% natural: canasto, toalla, esponja y bolsita. Libre de plástico.'},
-  {id:10, name:'Bolsito Circular Boho',    cat:'bolsos',    price:24000, variant:'Café · Flecos · Botón handmade',      badge:'',        img:'img/catalog/p10.jpg', swatches:['#8B5A3C'], desc:'Bolso circular con flecos largos y botón "handmade with love". Correa cruzada ajustable.'},
-  {id:11, name:'Sombrero Margaritas V2',   cat:'sombreros', price:26000, variant:'Beige / Verde · Margaritas bordadas', badge:'',        img:'img/catalog/p11.jpg', swatches:['#D9C9A8','#A8C3A0'], desc:'Variante en beige y verde salvia, con el mismo bordado floral artesanal hecho a mano.'},
-  {id:12, name:'Top Azul Celeste',         cat:'tops',      price:28000, variant:'Celeste · Hojas tejidas · Delicado',  badge:'',        img:'img/catalog/p12.jpg', swatches:['#9FB8D9'], desc:'Top delicado en tono celeste con colgantes de hoja. Amarre trasero ajustable a tu medida.'},
-  {id:13, name:'Top Limonada Rayas',       cat:'tops',      price:27000, variant:'Menta/Amarillo/Blanco · Botones',     badge:'new',     img:'img/catalog/p13.jpg', swatches:['#A8C3A0','#E8C23D','#F7F3EC'], desc:'Top a rayas en tonos menta, amarillo y blanco, con botones frontales y borde de pompones.'},
-  {id:14, name:'Mural Macramé',            cat:'hogar',     price:45000, variant:'Algodón natural · Rama madera',       badge:'',        img:'img/catalog/p14.jpg', swatches:['#F0E6D2'], desc:'Mural decorativo de macramé montado en rama de madera natural. Pieza statement para cualquier espacio.'},
-  {id:15, name:'Tops en Stock Colores',    cat:'tops',      price:25000, variant:'Lila / Amarillo · Margaritas',        badge:'',        img:'img/catalog/p15.jpg', swatches:['#C9C0E0','#E8C23D'], desc:'Disponibles de inmediato en lila y amarillo, con detalle de margaritas bordadas.'},
-];
-
-const HERO_SLIDES = [
-  'img/ig/ig05.jpg',
-  'img/ig/ig09.jpg',
-  'img/catalog/p04.jpg',
-  'img/ig/ig06.jpg',
-  'img/catalog/p07.jpg',
-];
-
-const IG_ITEMS = [
-  {label:'Top beige botones',       img:'img/ig/ig01.jpg'},
-  {label:'Top menta Isterra',       img:'img/ig/ig02.jpg'},
-  {label:'Top amarillo margaritas', img:'img/ig/ig03.jpg'},
-  {label:'Chaleco crema grueso',    img:'img/ig/ig04.jpg'},
-  {label:'Vestido crema botones',   img:'img/ig/ig05.jpg'},
-  {label:'Halter natural flatlay',  img:'img/ig/ig06.jpg'},
-  {label:'Top naranja detalle',     img:'img/ig/ig07.jpg'},
-  {label:'Gorro café bosque',       img:'img/ig/ig08.jpg'},
-  {label:'Top terracota bosque',    img:'img/ig/ig09.jpg'},
-];
-
-const CATEGORIES = [
-  {key:'todos',     label:'Todos',     sub:'Toda la colección'},
-  {key:'tops',      label:'Tops',      sub:'Tejido a crochet'},
-  {key:'sombreros', label:'Sombreros', sub:'Bordado a mano'},
-  {key:'bolsos',    label:'Bolsos',    sub:'Piezas únicas'},
-  {key:'chalecos',  label:'Chalecos',  sub:'Tejido a palillos'},
-  {key:'hogar',     label:'Hogar',     sub:'Fibras naturales'},
-];
-
-const COUPONS = {'ISTERRA10':10,'AMOR15':15,'ISTERRA20':20};
-const REVIEWS_BASE = [
-  {name:'Valentina M.',product:'Top Clásico Crochet',stars:5,text:'Compré el top clásico y es hermoso. La calidad es increíble, cada detalle se nota hecho con amor.',date:'Diciembre 2024'},
-  {name:'Sofía R.',product:'Morral Hojas a la Tierra',stars:5,text:'Mi morral de Isterra me lo preguntan en todas partes. Moda sostenible y única, no hay otra igual.',date:'Noviembre 2024'},
-  {name:'Camila A.',product:'Tops Veraniegos',stars:4,text:'El top que pedí quedó hermoso y el color exacto al de la foto. Vale cada día de espera.',date:'Octubre 2024'},
-];
+/* ============ DATOS ============
+   Los datos de productos, categorías, portada y reseñas viven en
+   js/catalog-data.js (se carga antes que este archivo). */
 
 /* ============ ESTADO ============ */
 let cart = [];
@@ -279,6 +228,69 @@ function renderQuickView(){
   } else {
     swWrap.style.display='none';
   }
+
+  renderQvGallery(p);
+  renderQvRecommend(p);
+
+  const modal = document.querySelector('.qv-modal');
+  if(modal) modal.scrollTop = 0;
+}
+
+/* ---- Galería de fotos adicionales (solo aparece si el producto tiene más de 1 imagen) ---- */
+function selectQvGalleryImg(src){
+  document.getElementById('qv-img').src = src;
+  document.querySelectorAll('.qv-gallery-thumb').forEach(t=>t.classList.toggle('active', t.dataset.src===src));
+}
+function renderQvGallery(p){
+  const wrap = document.getElementById('qv-gallery-wrap');
+  if(!wrap) return;
+  const extra = (p.images && p.images.length) ? p.images : [];
+  const allImgs = [p.img, ...extra.filter(i=>i!==p.img)];
+  if(allImgs.length<2){ wrap.style.display='none'; wrap.innerHTML=''; return; }
+  wrap.style.display='flex';
+  wrap.innerHTML = allImgs.map((src,i)=>
+    `<button class="qv-gallery-thumb ${i===0?'active':''}" data-src="${src}" onclick="selectQvGalleryImg('${src}')">
+      <img src="${src}" alt="${p.name} foto ${i+1}">
+    </button>`).join('');
+}
+
+/* ---- Te puede interesar: 4 productos relacionados (misma categoría, sin repetir el actual) ---- */
+function getRelatedProducts(p){
+  const sameCat = PRODUCTS.filter(x=>x.cat===p.cat && x.id!==p.id);
+  let picks = [...sameCat];
+  if(picks.length<4){
+    // completa con categorías afines (nunca con categorías sin relación)
+    const affinity = (CATEGORY_GROUPS[p.cat] || [p.cat]).filter(c=>c!==p.cat);
+    for(const cat of affinity){
+      if(picks.length>=4) break;
+      const more = PRODUCTS.filter(x=>x.cat===cat && x.id!==p.id && !picks.includes(x));
+      picks = picks.concat(more.slice(0, 4-picks.length));
+    }
+  }
+  return picks.slice(0,4);
+}
+function renderQvRecommend(p){
+  const wrap = document.getElementById('qv-recommend-wrap');
+  const grid = document.getElementById('qv-recommend-grid');
+  if(!wrap || !grid) return;
+  const related = getRelatedProducts(p);
+  if(!related.length){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  grid.innerHTML = related.map(r=>`
+    <button class="qv-rec-card" onclick="swapQuickView(${r.id})">
+      <div class="qv-rec-img"><img src="${r.img}" alt="${r.name}" loading="lazy"></div>
+      <div class="qv-rec-name">${r.name}</div>
+      <div class="qv-rec-price">${money(r.price)} CLP</div>
+    </button>`).join('');
+}
+/* Reemplaza el producto mostrado en el mismo recuadro, sin cerrar el modal */
+function swapQuickView(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  qvProduct = p;
+  qvSwatchIdx = 0;
+  qvQty = 1;
+  renderQuickView();
 }
 function selectQvSwatch(i){ qvSwatchIdx = i; renderQuickView(); }
 function qvChangeQty(d){ qvQty = Math.max(1, qvQty+d); renderQuickView(); }
@@ -491,21 +503,49 @@ function showToast(m){
 
 /* ============ HERO SLIDESHOW ============ */
 let heroIdx = 0;
+let heroTimer = null;
 function initHeroSlideshow(){
   const wrap = document.getElementById('hero-slides');
   const dotsWrap = document.getElementById('hero-dots');
   if(!wrap) return;
   wrap.innerHTML = HERO_SLIDES.map((src,i)=>`<div class="hero-slide ${i===0?'active':''}"><img src="${src}" alt="Isterra tejido a mano" loading="${i===0?'eager':'lazy'}"></div>`).join('');
   if(dotsWrap) dotsWrap.innerHTML = HERO_SLIDES.map((_,i)=>`<span class="hero-dot ${i===0?'active':''}" data-i="${i}"></span>`).join('');
+  startHeroTimer();
+}
+function startHeroTimer(){
+  if(heroTimer) clearInterval(heroTimer);
+  heroTimer = setInterval(()=>{ heroGo(heroIdx+1); }, 4800);
+}
+function heroGo(newIdx){
+  const wrap = document.getElementById('hero-slides');
+  const dotsWrap = document.getElementById('hero-dots');
+  if(!wrap) return;
+  const slides = wrap.querySelectorAll('.hero-slide');
+  const dots = dotsWrap ? dotsWrap.querySelectorAll('.hero-dot') : [];
+  if(!slides.length) return;
+  slides[heroIdx].classList.remove('active');
+  if(dots[heroIdx]) dots[heroIdx].classList.remove('active');
+  heroIdx = (newIdx + slides.length) % slides.length;
+  slides[heroIdx].classList.add('active');
+  if(dots[heroIdx]) dots[heroIdx].classList.add('active');
+}
+function heroNext(){ heroGo(heroIdx+1); startHeroTimer(); }
+function heroPrev(){ heroGo(heroIdx-1); startHeroTimer(); }
+
+/* ============ ROTADORES AUTOMÁTICOS DE LAS SECCIONES DE MARCA ============
+   Usados en "Hecho a mano, hilo a hilo" y "Tejido por encargo, nunca en
+   serie". Cambian de foto solas cada cierto tiempo, sin flechas. */
+function initLifeRotator(containerId, images){
+  const wrap = document.getElementById(containerId);
+  if(!wrap || !images || images.length<2) return;
+  wrap.innerHTML = images.map((src,i)=>`<div class="life-rot-slide ${i===0?'active':''}"><img src="${src}" alt="Isterra"></div>`).join('');
+  let idx = 0;
   setInterval(()=>{
-    const slides = wrap.querySelectorAll('.hero-slide');
-    const dots = dotsWrap ? dotsWrap.querySelectorAll('.hero-dot') : [];
-    slides[heroIdx].classList.remove('active');
-    if(dots[heroIdx]) dots[heroIdx].classList.remove('active');
-    heroIdx = (heroIdx+1) % slides.length;
-    slides[heroIdx].classList.add('active');
-    if(dots[heroIdx]) dots[heroIdx].classList.add('active');
-  }, 4800);
+    const slides = wrap.querySelectorAll('.life-rot-slide');
+    slides[idx].classList.remove('active');
+    idx = (idx+1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 3600);
 }
 
 /* ============ HEADER SOLID ON SCROLL (overlay transparente sobre el hero) ============ */
@@ -545,6 +585,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   renderReviews();
   initScrollReveal();
   updateHeaderState();
+  initLifeRotator('life-rotator-hecho-a-mano', LIFE_ROTATOR_HECHO_A_MANO);
+  initLifeRotator('life-rotator-tejido-encargo', LIFE_ROTATOR_TEJIDO_ENCARGO);
 
   document.addEventListener('click', (e)=>{
     const megaTrigger = document.getElementById('mega-trigger');
