@@ -38,7 +38,23 @@
         <i class="ti ti-shopping-bag"></i>
         <span class="cart-badge" id="cart-count">0</span>
       </button>
+      <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menú" aria-label="Abrir menú">
+        <i class="ti ti-menu-2"></i>
+      </button>
     </div>
+  </div>
+
+  <!-- MOBILE MENU PANEL (mismos 3 accesos que .nav-left, visibles solo en móvil) -->
+  <div class="mobile-menu-panel" id="mobile-menu-panel">
+    <button class="mobile-menu-link" onclick="closeMobileMenu();toggleMegaMenu(true);">
+      Colección <i class="ti ti-chevron-right"></i>
+    </button>
+    <button class="mobile-menu-link" onclick="closeMobileMenu();toggleAboutMenu(true);">
+      Quiénes somos <i class="ti ti-chevron-right"></i>
+    </button>
+    <a class="mobile-menu-link" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">
+      Instagram <i class="ti ti-brand-instagram"></i>
+    </a>
   </div>
 
   <!-- MEGA MENU -->
