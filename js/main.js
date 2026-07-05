@@ -112,6 +112,9 @@ function openCategoryPanel(key){
 
   const panel = document.getElementById('cat-panel');
   panel.classList.add('open');
+  // El tope del panel no se mueve mientras se expande hacia abajo,
+  // así que podemos desplazar la vista de inmediato sin esperar la animación.
+  requestAnimationFrame(()=>{ smoothScrollToEl('cat-panel', 100); });
 }
 
 function closeCategoryPanel(){

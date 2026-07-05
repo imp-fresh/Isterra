@@ -72,6 +72,10 @@ const PRODUCTS = [
   // ---- BOLSOS ----
   {id:4,  name:'Morral Hojas a la Tierra', cat:'bolsos', price:38000, variant:'Multicolor · Tejido artesanal', badge:'classic', impact:true, img:'img/catalog/bolsos/morral-hojas-tierra.jpg', images:[], swatches:['#A8C3A0','#D9C9A8','#C17B5E'], desc:'Una de nuestras piezas más queridas. Bolso tipo morral con cordón ajustable, hojas tejidas y borlas decorativas.'},
   {id:10, name:'Bolsito Circular Boho', cat:'bolsos', price:24000, variant:'Café · Flecos · Botón handmade', badge:'', img:'img/catalog/bolsos/bolsito-circular-boho.jpg', images:[], swatches:['#8B5A3C'], desc:'Bolso circular con flecos largos y botón "handmade with love". Correa cruzada ajustable.'},
+  {id:24, name:'Bolso Hobo Natural',   cat:'bolsos', price:32000, variant:'Crudo · Tejido grueso · Asa larga', badge:'new', img:'img/catalog/bolsos/bolso-hobo-natural.jpg', images:[], swatches:['#EDE6D8'], desc:'Bolso tipo hobo tejido a crochet en algodón crudo, con asa larga y forro interior. Precio referencial, sujeto a confirmación.'},
+  {id:25, name:'Bolso Playero Fiesta', cat:'bolsos', price:35000, variant:'Jute / Coral · Flecos', badge:'new', img:'img/catalog/bolsos/bolso-playero-fiesta.jpg', images:[], swatches:['#C9A876','#D9536E'], desc:'Bolso playero tejido en fibra jute con borde de flecos y detalle en coral. Precio referencial, sujeto a confirmación.'},
+  {id:26, name:'Bolso Playero Natural', cat:'bolsos', price:35000, variant:'Jute / Crudo · Flecos', badge:'new', img:'img/catalog/bolsos/bolso-playero-natural.jpg', images:[], swatches:['#C9A876','#F2ECD9'], desc:'Bolso playero tejido en fibra jute con flecos en tono natural. Precio referencial, sujeto a confirmación.'},
+  {id:27, name:'Bolso Boho Terracota', cat:'bolsos', price:33000, variant:'Terracota · Tejido calado', badge:'new', img:'img/catalog/bolsos/bolso-boho-terracota.jpg', images:[], swatches:['#B5552E'], desc:'Bolso tejido a crochet en tono terracota con textura calada y correa larga. Precio referencial, sujeto a confirmación.'},
 
   // ---- CHALECOS ----
   {id:7,  name:'Chaleco Luci',     cat:'chalecos', price:44990, variant:'Salmón · Tejido palillos · Suave', badge:'new', img:'img/catalog/chalecos/chaleco-luci.jpg', images:[], swatches:['#D98B7A'], desc:'Chaleco sin mangas tejido a palillos, textura acanalada y muy suave al tacto. Ideal sobre camisa o blusa.'},
@@ -106,6 +110,7 @@ const HERO_SLIDES = [
   'img/catalog/bolsos/morral-hojas-tierra.jpg',
   'img/ig/ig06.jpg',
   'img/catalog/chalecos/chaleco-luci.jpg',
+  'img/process/hero-textura-01.jpg',
 ];
 
 /* ---------- GRUPOS ROTATIVOS DE LAS SECCIONES DE MARCA ----------
@@ -116,12 +121,15 @@ const LIFE_ROTATOR_HECHO_A_MANO = [
   'img/ig/ig05.jpg',
   'img/ig/ig01.jpg',
   'img/ig/ig06.jpg',
+  'img/process/hecho-a-mano-02.jpg',
 ];
 
 const LIFE_ROTATOR_TEJIDO_ENCARGO = [
   'img/process/proceso-tejido-01.jpg',
   'img/ig/ig08.jpg',
   'img/ig/ig04.jpg',
+  'img/process/proceso-tejido-02.jpg',
+  'img/process/proceso-tejido-03.jpg',
 ];
 
 /* ---------- GALERÍA DE INSTAGRAM ---------- */
