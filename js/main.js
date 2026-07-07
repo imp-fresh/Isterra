@@ -7,6 +7,30 @@ let cart = [];
 let currentDiscount = 0;
 let reviewStars = 0;
 let reviews = [...REVIEWS_BASE];
+
+/* ============ RESEÑAS: carga desde Firestore (con respaldo local) ============
+   Si Firebase todavía no está configurado (ver js/firebase-config.js),
+   el sitio sigue funcionando normalmente mostrando solo las reseñas
+   de ejemplo — no se rompe nada mientras tanto. */
+async function loadReviews(){
+  if(!(typeof FIREBASE_READY !== 'undefined' && FIREBASE_READY && db)){
+    reviews = [...REVIEWS_BASE];
+    renderReviews();
+    return;
+  }
+  try{
+    const snap = await db.collection('reviews').orderBy('createdAt','desc').limit(50).get();
+    const fromDb = snap.docs.map(doc=>{
+      const d = doc.data();
+      return {name:d.name, product:d.product||'', stars:d.stars, text:d.text, date:d.dateLabel||''};
+    });
+    reviews = [...fromDb, ...REVIEWS_BASE];
+  } catch(err){
+    console.warn('No se pudieron cargar reseñas compartidas, usando reseñas locales:', err);
+    reviews = [...REVIEWS_BASE];
+  }
+  renderReviews();
+}
 let qvProduct = null;
 let qvSwatchIdx = 0;
 let qvQty = 1;
@@ -175,7 +199,7 @@ function setStars(n){
   document.querySelectorAll('.star-btn').forEach((b,i)=>b.classList.toggle('lit', i<n));
 }
 
-function submitReview(){
+async function submitReview(){
   const name = document.getElementById('rev-name').value.trim();
   const text = document.getElementById('rev-text').value.trim();
   const product = document.getElementById('rev-product').value.trim();
@@ -184,7 +208,21 @@ function submitReview(){
     msg.innerHTML = '<span style="color:#C62828">Completa nombre, estrellas y reseña.</span>';
     return;
   }
-  reviews.unshift({name, product, stars:reviewStars, text, date:'Hoy'});
+  const dateLabel = new Date().toLocaleDateString('es-CL', {month:'long', year:'numeric'});
+  const newReview = {name, product, stars:reviewStars, text, date:dateLabel};
+
+  if(typeof FIREBASE_READY !== 'undefined' && FIREBASE_READY && db){
+    try{
+      await db.collection('reviews').add({
+        name, product, stars:reviewStars, text, dateLabel,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+    } catch(err){
+      console.warn('No se pudo guardar la reseña en la base de datos compartida:', err);
+    }
+  }
+
+  reviews.unshift(newReview);
   renderReviews();
   document.getElementById('rev-name').value='';
   document.getElementById('rev-text').value='';
@@ -398,7 +436,37 @@ function checkout(){
 }
 
 /* ============ CONTACTO ============ */
-function submitContact(){
+/* ============ ENVÍO DE CORREO (Formspree) ============
+   Para activar el envío real de correos a isterraventas@gmail.com:
+   1. Crea una cuenta gratis en https://formspree.io con ese correo
+   2. Crea un formulario nuevo ahí y copia el ID que te dan (parece "xyzabcde")
+   3. Reemplaza 'TU_FORM_ID_AQUI' de la línea de abajo por ese ID
+   Mientras no se reemplace, el formulario avisa en consola y no envía nada. */
+const FORMSPREE_FORM_ID = 'TU_FORM_ID_AQUI';
+
+async function sendContactEmail({name, email, message, origen}){
+  if(FORMSPREE_FORM_ID === 'TU_FORM_ID_AQUI'){
+    console.warn('Formspree no está configurado todavía: reemplaza FORMSPREE_FORM_ID en js/main.js con el ID real.');
+    return false;
+  }
+  try{
+    const res = await fetch('https://formspree.io/f/'+FORMSPREE_FORM_ID, {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({ name, email, message, _subject: 'Nuevo mensaje desde isterra.cl · '+origen })
+    });
+    return res.ok;
+  } catch(err){
+    console.error('Error enviando correo:', err);
+    return false;
+  }
+}
+function goToContactForm(){
+  smoothScrollToEl('contact-section');
+  setTimeout(()=>{ document.getElementById('c-name')?.focus(); }, 500);
+}
+
+async function submitContact(){
   const n = document.getElementById('c-name').value.trim();
   const e = document.getElementById('c-email').value.trim();
   const t = document.getElementById('c-msg').value.trim();
@@ -407,11 +475,17 @@ function submitContact(){
     msg.innerHTML = '<span style="color:#C62828">Completa todos los campos.</span>';
     return;
   }
-  msg.innerHTML = '<span style="color:#2E7D32">✓ Mensaje recibido. Te responderemos pronto.</span>';
-  document.getElementById('c-name').value='';
-  document.getElementById('c-email').value='';
-  document.getElementById('c-msg').value='';
-  showToast('Mensaje enviado ✓');
+  msg.innerHTML = '<span style="color:var(--text-soft)">Enviando…</span>';
+  const ok = await sendContactEmail({name:n, email:e, message:t, origen:'Formulario Escríbenos'});
+  if(ok){
+    msg.innerHTML = '<span style="color:#2E7D32">✓ Mensaje recibido. Te responderemos pronto.</span>';
+    document.getElementById('c-name').value='';
+    document.getElementById('c-email').value='';
+    document.getElementById('c-msg').value='';
+    showToast('Mensaje enviado ✓');
+  } else {
+    msg.innerHTML = '<span style="color:#C62828">No se pudo enviar. Escríbenos por WhatsApp mientras lo solucionamos.</span>';
+  }
 }
 function submitNewsletter(){
   const input = document.getElementById('newsletter-email');
@@ -601,7 +675,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   renderCatAccordion();
   renderCategories();
   renderIG();
-  renderReviews();
+  loadReviews();
   initScrollReveal();
   updateHeaderState();
   initLifeRotator('life-rotator-hecho-a-mano', LIFE_ROTATOR_HECHO_A_MANO);

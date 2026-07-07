@@ -25,8 +25,8 @@
   <div class="header-inner">
     <nav class="nav-left">
       <button class="nav-link" id="mega-trigger" onclick="toggleMegaMenu()">Colección</button>
+      <button class="nav-link nav-link-stack" id="custom-order-trigger" onclick="openCustomOrderForm()"><span>Pedido</span><span>Personalizado</span></button>
       <button class="nav-link" id="about-trigger" onclick="toggleAboutMenu()">Quiénes somos</button>
-      <a class="nav-link" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">Instagram</a>
     </nav>
     <a class="brand" href="#" onclick="smoothScrollToY(0);return false;">
       <span class="brand-word">Isterra</span>
@@ -49,12 +49,12 @@
     <button class="mobile-menu-link" onclick="closeMobileMenu();toggleMegaMenu(true);">
       Colección <i class="ti ti-chevron-right"></i>
     </button>
+    <button class="mobile-menu-link" onclick="closeMobileMenu();openCustomOrderForm();">
+      Pedido Personalizado <i class="ti ti-sparkles"></i>
+    </button>
     <button class="mobile-menu-link" onclick="closeMobileMenu();toggleAboutMenu(true);">
       Quiénes somos <i class="ti ti-chevron-right"></i>
     </button>
-    <a class="mobile-menu-link" href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener">
-      Instagram <i class="ti ti-brand-instagram"></i>
-    </a>
   </div>
 
   <!-- MEGA MENU -->
@@ -227,7 +227,7 @@
       <div class="life-divider"></div>
       <p>Cada pedido se teje especialmente para ti. Eso significa esperar un poco más, pero también significa una prenda sin defectos de producción masiva, hecha con el tiempo que merece.</p>
       <p>Una vez lista, la enviamos por Starken a cualquier punto del país.</p>
-      <button class="hero-cta" style="background:var(--rose-dark);color:white;" onclick="scrollTo('contact-section')">Hacer un pedido</button>
+      <button class="hero-cta" style="background:var(--rose-dark);color:white;" onclick="openCustomOrderForm()">Hacer un pedido</button>
     </div>
   </div>
 </section>
@@ -329,7 +329,7 @@
       <div class="footer-social">
         <a href="https://www.instagram.com/isterra_textil/" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i></a>
         <a href="https://wa.me/56966174927" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i></a>
-        <a href="mailto:isterratejidoymoda@gmail.com"><i class="ti ti-mail"></i></a>
+        <button onclick="goToContactForm()" title="Escríbenos"><i class="ti ti-mail"></i></button>
       </div>
     </div>
     <div>
@@ -434,10 +434,23 @@
 <!-- BACK TO TOP -->
 <button class="back-top" id="back-top" onclick="smoothScrollToY(0)"><i class="ti ti-arrow-up"></i></button>
 
+<!-- PEDIDO PERSONALIZADO (formulario paso a paso) -->
+<div class="modal-overlay" id="custom-order-overlay" onclick="if(event.target===this)closeCustomOrderForm()">
+  <div class="co-modal">
+    <button class="qv-close" onclick="closeCustomOrderForm()"><i class="ti ti-x"></i></button>
+    <div class="co-progress"><div class="co-progress-bar" id="co-progress-bar"></div></div>
+    <div class="co-body" id="co-body"></div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="js/catalog-data.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/custom-order.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
